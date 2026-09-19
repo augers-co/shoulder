@@ -2,15 +2,10 @@
 
 A single-page rotator-cuff and scapular rehab reference, built for one person.
 
-Not published yet. To put it on GitHub Pages under `augers-co` (a personal account on the free
-plan, so the repo has to be public):
+Live: https://augers-co.github.io/shoulder/
 
-```
-gh repo create augers-co/shoulder --public --source=. --push
-gh api -X POST repos/augers-co/shoulder/pages -f 'source[branch]=main' -f 'source[path]=/'
-```
-
-It would then serve at https://augers-co.github.io/shoulder/
+On a phone, open that and use Share → Add to Home Screen. Installing it is what stops iOS
+clearing your saved data after about a week of not opening the page.
 
 One self-contained `index.html` — no build step, no dependencies, no server. Open the file
 directly or serve the directory.
