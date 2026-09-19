@@ -267,6 +267,26 @@ main{padding-bottom:3rem}
 .vid iframe{display:block;width:100%;height:100%;border:0}
 .pico{flex:none;width:14px;height:14px}
 .vidbox{border:1px solid var(--haze);border-radius:3px;overflow:hidden}
+.photobox{border:1px solid var(--haze);border-radius:3px;overflow:hidden;margin:.45rem 0 0}
+.photobox > summary{
+  cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;
+  min-height:44px;padding:.5rem .75rem;
+  font-family:var(--sans);font-weight:600;font-size:.9375rem;color:var(--kelp);
+}
+.photobox > summary::-webkit-details-marker{display:none}
+.photobox > summary::marker{content:""}
+.photobox > summary .chev{width:16px;height:16px;margin:0 0 0 auto;color:var(--kelp)}
+.photobox[open] > summary .chev{transform:rotate(180deg)}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:2px;border-top:var(--line);background:var(--haze)}
+.shots figure{margin:0;position:relative;background:var(--surface)}
+.shots img{display:block;width:100%;height:auto}
+.shots figcaption{
+  position:absolute;left:0;bottom:0;background:var(--ink);color:var(--paper);
+  font-family:var(--sans);font-weight:600;font-size:.6875rem;line-height:1.5;padding:.1rem .4rem;
+}
+@media (prefers-color-scheme:dark){ .shots figcaption{background:var(--paper);color:var(--ink)} }
+.shots-credit{margin:0;padding:.45rem .75rem;border-top:var(--line);font-size:.8125rem;line-height:1.5;color:var(--muted)}
+.poster{flex:none;width:64px;height:36px;object-fit:cover;border-radius:2px;background:var(--kelp-wash)}
 .vidbox > summary{
   cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;
   min-height:44px;padding:.5rem .75rem;
@@ -588,6 +608,14 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="Z2ZySX-U4aY" data-title="Side-lying external rotation"><a class="vidlink" href="https://www.youtube.com/watch?v=Z2ZySX-U4aY" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <details class="photobox">
+        <summary><svg class="pico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="M4 11l3-3 2 2 2.5-2.5L14 10"/><circle cx="5.8" cy="6.4" r=".9"/></svg>Photos<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="shots">
+          <figure><img src="photos/sidelying-er-0.jpg" alt="Side-lying external rotation: forearm resting across the belly." loading="lazy" width="560" height="374"><figcaption>Start</figcaption></figure>
+          <figure><img src="photos/sidelying-er-1.jpg" alt="Side-lying external rotation: forearm rotated up toward the ceiling." loading="lazy" width="560" height="374"><figcaption>End</figcaption></figure>
+        </div>
+        <p class="shots-credit">Public domain photographs, via free-exercise-db.</p>
+      </details>
       <div class="howto">
         <h4 class="blk">How to do it</h4>
         <ol>
@@ -763,6 +791,14 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="CU4Xc2qlLC0" data-title="Face pull"><a class="vidlink" href="https://www.youtube.com/watch?v=CU4Xc2qlLC0" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <details class="photobox">
+        <summary><svg class="pico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="M4 11l3-3 2 2 2.5-2.5L14 10"/><circle cx="5.8" cy="6.4" r=".9"/></svg>Photos<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="shots">
+          <figure><img src="photos/face-pull-0.jpg" alt="Face pull: arms extended toward the cable." loading="lazy" width="560" height="374"><figcaption>Start</figcaption></figure>
+          <figure><img src="photos/face-pull-1.jpg" alt="Face pull: hands pulled level with the face, elbows wide." loading="lazy" width="560" height="374"><figcaption>End</figcaption></figure>
+        </div>
+        <p class="shots-credit">Public domain photographs, via free-exercise-db.</p>
+      </details>
       <div class="howto">
         <h4 class="blk">How to do it</h4>
         <ol>
@@ -804,7 +840,7 @@ main{padding-bottom:3rem}
       <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
     </summary>
     <div class="body">
-      <div class="vidwrap" data-list="PLoxfqGRSN_tFiHzQ7j7hCzBr035OAf1l7" data-title="Rotator cuff exercises for climbers"><a class="vidlink" href="https://www.youtube.com/playlist?list=PLoxfqGRSN_tFiHzQ7j7hCzBr035OAf1l7" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the playlist</a></div>
+      <div class="vidwrap" data-list="PLoxfqGRSN_tFiHzQ7j7hCzBr035OAf1l7" data-poster="W-N2Vp_7obs" data-title="Rotator cuff exercises for climbers"><a class="vidlink" href="https://www.youtube.com/playlist?list=PLoxfqGRSN_tFiHzQ7j7hCzBr035OAf1l7" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the playlist</a></div>
       <dl class="dose">
         <dt>For strength</dt><dd>3–4 × 8</dd>
         <dt>For endurance</dt><dd>3–4 × 20</dd>
@@ -1063,6 +1099,14 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="lpltjWHd0ek" data-title="Turkish get-up"><a class="vidlink" href="https://www.youtube.com/watch?v=lpltjWHd0ek" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <details class="photobox">
+        <summary><svg class="pico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="M4 11l3-3 2 2 2.5-2.5L14 10"/><circle cx="5.8" cy="6.4" r=".9"/></svg>Photos<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="shots">
+          <figure><img src="photos/turkish-get-up-0.jpg" alt="Turkish get-up: lying on the back, weight pressed overhead." loading="lazy" width="560" height="374"><figcaption>Start</figcaption></figure>
+          <figure><img src="photos/turkish-get-up-1.jpg" alt="Turkish get-up: standing, weight still locked overhead." loading="lazy" width="560" height="374"><figcaption>End</figcaption></figure>
+        </div>
+        <p class="shots-credit">Public domain photographs, via free-exercise-db.</p>
+      </details>
       <div class="howto">
         <h4 class="blk">How to do it</h4>
         <ol>
@@ -1160,6 +1204,14 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="YoZ4O09q6rg" data-title="Cross-body adduction stretch"><a class="vidlink" href="https://www.youtube.com/watch?v=YoZ4O09q6rg" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <details class="photobox">
+        <summary><svg class="pico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="M4 11l3-3 2 2 2.5-2.5L14 10"/><circle cx="5.8" cy="6.4" r=".9"/></svg>Photos<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="shots">
+          <figure><img src="photos/cross-body-0.jpg" alt="Cross-body adduction stretch: arm hanging at the side." loading="lazy" width="560" height="374"><figcaption>Start</figcaption></figure>
+          <figure><img src="photos/cross-body-1.jpg" alt="Cross-body adduction stretch: arm drawn across the chest." loading="lazy" width="560" height="374"><figcaption>End</figcaption></figure>
+        </div>
+        <p class="shots-credit">Public domain photographs, via free-exercise-db.</p>
+      </details>
       <div class="howto">
         <h4 class="blk">How to do it</h4>
         <ol>
@@ -1808,7 +1860,12 @@ function embedAll(){
     var src=pl?'https://www.youtube-nocookie.com/embed/videoseries?list='+encodeURIComponent(pl)
               :'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(w.dataset.yt);
     var box=d.createElement('details'); box.className='vidbox';
-    box.innerHTML='<summary>'+PLAY+(pl?'Watch the playlist':'Watch the demo')+CHEVI+'</summary><div class="vid"></div>';
+    /* cards with their own photographs keep the plain glyph; the rest get the video's poster frame */
+    var card=w.closest('.card'), thumb=w.dataset.poster||w.dataset.yt;
+    var lead=(card&&card.querySelector('.photobox'))||!thumb
+      ? PLAY
+      : '<img class="poster" src="https://i.ytimg.com/vi/'+encodeURIComponent(thumb)+'/mqdefault.jpg" alt="" loading="lazy" width="64" height="36">';
+    box.innerHTML='<summary>'+lead+(pl?'Watch the playlist':'Watch the demo')+CHEVI+'</summary><div class="vid"></div>';
     box.addEventListener('toggle',function(){
       var slot=box.querySelector('.vid');
       if(!box.open||slot.firstChild) return;
