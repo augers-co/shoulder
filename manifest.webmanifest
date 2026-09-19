@@ -1,0 +1,15 @@
+{
+  "name": "Shoulder — cuff & scapular rehab",
+  "short_name": "Shoulder",
+  "description": "A personal rotator-cuff and scapular rehab reference with a daily pain check-in.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#12242B",
+  "theme_color": "#12242B",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,1926 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="A personal rotator-cuff and scapular rehab reference for a climber and surfer with bilateral deltoid-insertion pain.">
+<title>Shoulder — cuff &amp; scapular rehab</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💪</text></svg>">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Shoulder">
+<meta name="theme-color" content="#12242B" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#193038" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* ── tokens ─────────────────────────────────────────────────────── */
+:root{
+  --ink:#12242B; --paper:#EDF0EE; --surface:#FFFFFF;
+  --kelp:#2F6B5E; --signal:#B5462F; --haze:#C9D4D2;
+  --muted:#4A5F66; --on-kelp:#FFFFFF; --on-signal:#FFFFFF;
+  --kelp-wash:#E2ECE9; --signal-wash:#FBEDE9;
+  --line:1px solid var(--haze);
+  --hero-bg:#12242B; --hero-fg:#EDF0EE; --hero-dim:#C9D4D2; --hero-lo:#5DA694; --hero-hi:#E67C5E; --hero-line:#2B4048;
+  --sans:'Archivo','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif;
+  --serif:'Source Serif 4','Iowan Old Style','Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;
+  font-size:17px;
+  background:var(--paper);
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ink:#EDF0EE; --paper:#12242B; --surface:#193038;
+    --kelp:#5DA694; --signal:#E67C5E; --haze:#4C6871;
+    --muted:#A8BAC0; --on-kelp:#0D1B21; --on-signal:#0D1B21;
+    --kelp-wash:#17332F; --signal-wash:#33262A;
+    --hero-bg:#193038; --hero-fg:#EDF0EE; --hero-dim:#A8BAC0; --hero-lo:#5DA694; --hero-hi:#E67C5E; --hero-line:#33505A;
+  }
+}
+
+/* ── base ───────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--serif); font-size:1.0625rem; line-height:1.65;
+  font-variant-ligatures:common-ligatures; text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+.wrap{max-width:38rem;margin:0 auto;padding:0 1rem}
+p{margin:0 0 .85em;max-width:64ch}
+p:last-child{margin-bottom:0}
+h1,h2,h3{font-family:var(--sans);font-weight:700;margin:0;text-wrap:balance}
+h1{font-size:2rem;line-height:1.15;letter-spacing:-.015em}
+h2{font-size:1.5rem;line-height:1.2;letter-spacing:-.01em}
+h3{font-size:1.125rem;line-height:1.25;font-weight:600;letter-spacing:-.005em}
+a{color:var(--kelp);text-underline-offset:.18em;text-decoration-thickness:from-font}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2.5px solid var(--kelp);outline-offset:3px;border-radius:2px}
+.hero :focus-visible{outline-color:var(--hero-fg)}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+hr{border:0;border-top:var(--line);margin:2.5rem 0}
+button{font:inherit;color:inherit}
+input,textarea,select{font:inherit;color:inherit}
+
+/* ── hero ───────────────────────────────────────────────────────── */
+.hero{background:var(--hero-bg);color:var(--hero-fg);padding:2.25rem 0 2rem}
+.hero .eyebrow{font-family:var(--sans);font-weight:600;font-size:.9375rem;line-height:1.4;letter-spacing:0;color:var(--hero-dim);margin:0 0 .85rem}
+.scale{display:flex;gap:2px;width:100%;margin:0;padding:0;border:0}
+.seg{
+  flex:1 1 0; min-width:0; height:46px; padding:0; cursor:pointer;
+  border:0; border-radius:2px 2px 0 0; background:var(--kelp); color:var(--on-kelp);
+  font-family:var(--sans); font-weight:600; font-size:.8125rem;
+  font-variant-numeric:tabular-nums;
+  display:flex; align-items:flex-end; justify-content:center; padding-bottom:4px;
+  transform-origin:bottom center;
+  transition:filter .15s ease, box-shadow .15s ease;
+}
+.seg:hover{filter:brightness(1.12)}
+.seg[aria-pressed="true"]{box-shadow:inset 0 0 0 3px var(--hero-bg),0 0 0 3px var(--hero-fg)}
+.seg[data-band="hi"]{background:var(--signal);color:var(--on-signal)}
+.check-q{
+  font-family:var(--sans);font-weight:600;font-size:1.0625rem;line-height:1.35;
+  color:var(--hero-fg);margin:0 0 .55rem;max-width:32ch;
+}
+.check-q span{font-weight:400;color:var(--hero-dim)}
+.check-said{
+  font-family:var(--sans);font-weight:600;font-size:.9375rem;line-height:1.45;
+  color:var(--hero-fg);margin:.7rem 0 0;max-width:44ch;
+}
+.check-said b{font-variant-numeric:tabular-nums}
+.check-said em{font-style:normal;font-weight:400;color:var(--hero-dim)}
+.linkish{
+  background:none;border:0;padding:.35rem .1rem;margin-left:.3rem;cursor:pointer;
+  font-family:var(--sans);font-weight:600;font-size:.875rem;color:var(--hero-dim);
+  text-decoration:underline;text-underline-offset:.2em;
+}
+.linkish:hover{color:var(--hero-fg)}
+.go-flare{color:var(--hero-hi)}
+.check-24h{
+  font-family:var(--sans);font-weight:600;font-size:.9375rem;line-height:1.45;
+  margin:.6rem 0 0;padding:.5rem .7rem;border-left:3px solid currentColor;
+  border-radius:0 3px 3px 0;max-width:44ch;
+}
+.check-24h[hidden]{display:none}
+.check-24h[data-verdict="ok"]{color:var(--hero-lo)}
+.check-24h[data-verdict="high"]{color:var(--hero-hi)}
+.check-24h b{font-variant-numeric:tabular-nums}
+.trend{margin:1rem 0 0}
+.trend-bars{display:flex;align-items:flex-end;gap:3px;height:40px}
+.trend-bars span{flex:1 1 0;min-width:0;height:var(--h);background:var(--hero-lo);border-radius:1px 1px 0 0}
+.trend-bars span[data-band="hi"]{background:var(--hero-hi)}
+.trend-bars .nil{height:2px;background:var(--hero-dim);opacity:.3}
+.trend-axis{
+  display:flex;justify-content:space-between;margin:.3rem 0 0;
+  font-family:var(--sans);font-weight:600;font-size:.75rem;line-height:1.4;color:var(--hero-dim);opacity:.8;
+}
+.trend-note{
+  font-family:var(--sans);font-weight:600;font-size:.8125rem;line-height:1.5;
+  color:var(--hero-dim);margin:.4rem 0 0;font-variant-numeric:tabular-nums;
+}
+.scale-note{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid var(--hero-line)}
+.scale-key{display:flex;gap:2px;width:100%;margin:0 0 .9rem}
+.scale-key span{
+  font-family:var(--sans);font-weight:600;font-size:.8125rem;line-height:1.5;
+  padding-top:.2rem;border-top:2px solid currentColor;
+}
+.k-lo{flex:5;color:var(--hero-lo)}
+.k-hi{flex:6;color:var(--hero-hi);text-align:right}
+.scale-note{font-size:1rem;line-height:1.55;max-width:60ch;margin:0;color:var(--hero-dim)}
+.scale-note b{font-family:var(--sans);font-weight:600;font-variant-numeric:tabular-nums}
+
+/* hero animation — the page's one orchestrated moment */
+@keyframes segIn{from{transform:scaleY(.12);opacity:0}to{transform:scaleY(1);opacity:1}}
+.js .seg{animation:segIn .42s cubic-bezier(.2,.8,.3,1) backwards;animation-delay:calc(var(--i) * 45ms + 120ms)}
+
+/* ── filter bar ─────────────────────────────────────────────────── */
+.filters{
+  position:sticky; top:0; z-index:20;
+  background:var(--paper); border-bottom:var(--line);
+  padding:.6rem 0 .5rem;
+}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:0;padding:0;border:0}
+.chip{
+  min-height:44px; min-width:44px; padding:.5rem .85rem; cursor:pointer;
+  background:var(--surface); color:var(--ink);
+  border:1px solid var(--haze); border-radius:3px;
+  font-family:var(--sans); font-weight:600; font-size:.9375rem; line-height:1.4;
+  transition:background .15s ease,color .15s ease,border-color .15s ease;
+}
+.chip[aria-pressed="true"]{background:var(--kelp);color:var(--on-kelp);border-color:var(--kelp)}
+.count{
+  display:block; margin:.5rem 0 0;
+  font-family:var(--sans); font-weight:600; font-size:.875rem; line-height:1.4;
+  color:var(--muted); font-variant-numeric:tabular-nums;
+}
+.count .done{color:var(--kelp)}
+
+/* ── sections ───────────────────────────────────────────────────── */
+main{padding-bottom:3rem}
+.sec{margin:2.75rem 0 0}
+.sec > h2{display:flex;align-items:baseline;gap:.55rem;margin-bottom:.35rem}
+.sec > h2::before{
+  content:"";flex:none;width:.5rem;height:.5rem;border-radius:1px;
+  background:var(--kelp);transform:translateY(-.15em);
+}
+.sec-note{color:var(--muted);font-size:.9375rem;line-height:1.5;margin:0 0 1.1rem;max-width:58ch}
+.sec[data-sec="flare"] > h2::before{background:var(--signal)}
+
+/* ── triage disclosure ──────────────────────────────────────────── */
+.triage{margin:2.75rem 0 0}
+.triage > summary{
+  cursor:pointer; list-style:none; display:grid; align-items:baseline;
+  grid-template-columns:1fr auto; gap:0 .6rem; padding:.5rem 0; min-height:44px;
+}
+.triage > summary::-webkit-details-marker{display:none}
+.triage > summary::marker{content:""}
+.triage > summary h2{display:flex;align-items:baseline;gap:.55rem;grid-column:1}
+.triage > summary h2::before{content:"";flex:none;width:.5rem;height:.5rem;border-radius:1px;background:var(--kelp);transform:translateY(-.15em)}
+.triage > summary .chev{grid-column:2;grid-row:1;align-self:center;margin:0}
+.triage[open] > summary .chev{transform:rotate(180deg)}
+.tri-sum{grid-column:1;color:var(--muted);font-size:.9375rem;line-height:1.5;margin-top:.1rem}
+.tri-sum::first-letter{text-transform:uppercase}
+.tri-body{padding-top:.9rem}
+.ask{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.9rem}
+.ask .btn[aria-pressed="true"]{background:var(--kelp);color:var(--on-kelp);border-color:var(--kelp)}
+.verdict{
+  margin:1.75rem 0 0; padding:.75rem .85rem; border-left:3px solid var(--kelp);
+  background:var(--kelp-wash); border-radius:0 3px 3px 0; font-size:1rem; line-height:1.55; max-width:62ch;
+}
+.verdict[hidden]{display:none}
+.chip[data-flag="1"]::before{content:"";display:inline-block;width:.45rem;height:.45rem;border-radius:50%;background:var(--kelp);margin-right:.4rem;vertical-align:.08em}
+.chip[data-flag="1"][aria-pressed="true"]::before{background:var(--on-kelp)}
+/* a negative neck self-test takes the section out of the program, but the chip still reaches it */
+.list.neck-off:not(.f-neck) .sec[data-sec="neck"]{display:none}
+
+/* ── self-test block ────────────────────────────────────────────── */
+.test{border-left:3px solid var(--kelp);padding:.15rem 0 .15rem 1rem;margin:0 0 1.75rem}
+.test:last-child{margin-bottom:0}
+.test h3{margin-bottom:.35rem}
+.locate{display:flex;flex-wrap:wrap;gap:.25rem 1.1rem;align-items:flex-start}
+.locfig{flex:0 0 84px;color:var(--ink)}
+.locfig svg{display:block;width:100%;height:auto}
+.locate p{flex:1 1 13rem;margin:0}
+.loc .bod{stroke:currentColor}
+.loc .ref{stroke:var(--haze)}
+.loc .guide{stroke:var(--haze);stroke-dasharray:3 3}
+.loc .dot{fill:var(--haze);stroke:none}
+.loc .tgt{stroke:var(--kelp)}
+.loc .tgtdot{fill:var(--kelp);stroke:none}
+.flags{background:var(--signal-wash);border-left:3px solid var(--signal);padding:1rem;margin:0 0 1.75rem}
+.flags h3{color:var(--signal);margin-bottom:.4rem}
+.flags ul{margin:0;padding-left:1.15rem}
+.flags li{margin-bottom:.3rem;max-width:58ch}
+.flags li:last-child{margin-bottom:0}
+
+/* ── exercise card ──────────────────────────────────────────────── */
+.card{
+  background:var(--surface); border:1px solid var(--haze); border-radius:4px;
+  margin:0 0 .6rem; overflow:hidden; scroll-margin-top:7.5rem;
+}
+.card[open]{border-color:var(--kelp)}
+.card > summary{
+  display:flex; gap:.85rem; align-items:flex-start;
+  padding:.85rem .9rem; cursor:pointer; list-style:none;
+  min-height:44px;
+}
+.card > summary::-webkit-details-marker{display:none}
+.card > summary::marker{content:""}
+.card > summary:focus-visible{outline:2.5px solid var(--kelp);outline-offset:-2px}
+.fig{flex:none;width:64px;color:var(--ink)}
+.fig svg{display:block;width:100%;height:auto}
+.sum{flex:1 1 auto;min-width:0}
+.sum .name{display:block;margin:0;font-family:var(--sans);font-weight:600;font-size:1.125rem;line-height:1.25;letter-spacing:-.005em}
+.sum .why{display:block;color:var(--muted);font-size:.9375rem;line-height:1.4;margin-top:.15rem}
+.chev{flex:none;width:18px;height:18px;margin-top:.3rem;color:var(--muted);transition:transform .2s ease}
+.card[open] .chev{transform:rotate(180deg)}
+.card .body{padding:0 .9rem 1rem;border-top:var(--line);margin-top:.15rem;padding-top:.9rem}
+.card .body > *:first-child{margin-top:0}
+
+.blk{font-family:var(--sans);font-weight:600;font-size:.8125rem;line-height:1.5;margin:0 0 .4rem;color:var(--muted)}
+.howto ol{margin:0;padding-left:1.35rem;font-size:1.0625rem;line-height:1.55}
+.howto li{margin-bottom:.45rem;max-width:58ch}
+.howto li:last-child{margin-bottom:0}
+.howto li::marker{font-family:var(--sans);font-weight:600;color:var(--kelp)}
+.howto b{font-family:var(--sans);font-weight:600;font-size:.9375rem}
+.whyblk{margin:1.4rem 0 0}
+.whyblk p:last-child{margin-bottom:0}
+.dose{margin:1.1rem 0 0;padding:.75rem .85rem;background:var(--kelp-wash);border-radius:3px;display:grid;grid-template-columns:auto 1fr;gap:.3rem .85rem}
+.dose dt{font-family:var(--sans);font-weight:600;font-size:.8125rem;line-height:1.5;color:var(--muted);white-space:nowrap;padding-top:.1em}
+.dose dd{margin:0;font-family:var(--sans);font-weight:600;font-size:.9375rem;line-height:1.4;font-variant-numeric:tabular-nums;color:var(--kelp)}
+.dose dd.prose{font-family:var(--serif);font-weight:400;color:var(--ink);font-size:1rem;line-height:1.5}
+@media (max-width:22rem){ .dose{grid-template-columns:1fr;gap:.1rem} .dose dt{margin-top:.4rem} }
+
+.watch{margin:1.1rem 0 0;font-size:1rem;line-height:1.55}
+.watch .lbl{font-family:var(--sans);font-weight:600;font-size:.8125rem;color:var(--muted);display:block}
+.steps{margin:1.1rem 0 0;padding-left:1.35rem;font-size:1rem;line-height:1.55}
+.steps li{margin-bottom:.25rem}
+.steps li::marker{font-family:var(--sans);font-weight:600;color:var(--kelp)}
+
+.vid{aspect-ratio:16/9;width:100%;background:var(--kelp-wash);overflow:hidden;border-top:var(--line)}
+.vid iframe{display:block;width:100%;height:100%;border:0}
+.pico{flex:none;width:14px;height:14px}
+.vidbox{border:1px solid var(--haze);border-radius:3px;overflow:hidden}
+.vidbox > summary{
+  cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;
+  min-height:44px;padding:.5rem .75rem;
+  font-family:var(--sans);font-weight:600;font-size:.9375rem;color:var(--kelp);
+}
+.vidbox > summary::-webkit-details-marker{display:none}
+.vidbox > summary::marker{content:""}
+.vidbox > summary .chev{width:16px;height:16px;margin:0 0 0 auto;color:var(--kelp)}
+.vidbox[open] > summary .chev{transform:rotate(180deg)}
+.vidlink{
+  display:flex;align-items:center;gap:.5rem;min-height:44px;
+  padding:.5rem .75rem;border:1px solid var(--haze);border-radius:3px;
+  background:transparent;color:var(--kelp);
+  font-family:var(--sans);font-weight:600;font-size:.9375rem;text-decoration:none;
+}
+.vidlink:hover{border-color:var(--kelp)}
+.vidlink::after{content:"↗";margin-left:auto;opacity:.75}
+.howto{margin:1.2rem 0 0}
+.src{margin:1rem 0 0;font-size:.9375rem;line-height:1.5;color:var(--muted)}
+.src a{display:inline-block;padding:.15rem 0}
+
+/* ── tracking ───────────────────────────────────────────────────── */
+.status{display:none;margin-top:.3rem;font-family:var(--sans);font-weight:600;font-size:.8125rem;line-height:1.4;font-variant-numeric:tabular-nums;color:var(--muted)}
+.js .status{display:block}
+.status .tick{color:var(--kelp)}
+.status:empty{display:none}
+.card[data-done="1"]{border-left:3px solid var(--kelp)}
+
+.logbox{margin:1.1rem 0 0;padding:.8rem .85rem;border:1px dashed var(--haze);border-radius:3px}
+.logbox h4{font-family:var(--sans);font-weight:600;font-size:.8125rem;line-height:1.5;margin:0 0 .5rem;color:var(--muted)}
+.logrow{display:flex;gap:.45rem;align-items:stretch}
+.logrow input{
+  flex:1 1 auto;min-width:0;min-height:44px;padding:.45rem .6rem;
+  background:var(--paper);border:1px solid var(--haze);border-radius:3px;
+  font-family:var(--sans);font-weight:600;font-size:.9375rem;font-variant-numeric:tabular-nums;
+}
+.logrow input::placeholder{font-weight:400;color:var(--muted);opacity:1}
+.btn{
+  flex:none;min-height:44px;padding:.45rem .9rem;cursor:pointer;
+  background:var(--kelp);color:var(--on-kelp);border:1px solid var(--kelp);border-radius:3px;
+  font-family:var(--sans);font-weight:600;font-size:.9375rem;white-space:nowrap;
+}
+.btn:hover{filter:brightness(1.1)}
+.btn-ghost{background:transparent;color:var(--kelp);border-color:var(--haze)}
+.btn-ghost:hover{filter:none;border-color:var(--kelp)}
+.btn-warn{background:transparent;color:var(--muted);border-color:var(--haze)}
+.btn-warn:hover{filter:none;color:var(--signal);border-color:var(--signal)}
+.loghint{margin:.5rem 0 0;font-size:.875rem;line-height:1.45;color:var(--muted)}
+.hist{margin:.7rem 0 0}
+.hist > summary{
+  cursor:pointer;min-height:44px;display:flex;align-items:center;
+  font-family:var(--sans);font-weight:600;font-size:.875rem;color:var(--kelp);list-style:none;
+}
+.hist > summary::-webkit-details-marker{display:none}
+.hist > summary::marker{content:""}
+.hist > summary::before{content:"▸ ";margin-right:.3rem;transition:transform .2s ease;display:inline-block}
+.hist[open] > summary::before{transform:rotate(90deg)}
+.hist ul{list-style:none;margin:.2rem 0 0;padding:0;max-height:15rem;overflow-y:auto}
+.hist li{display:flex;gap:.6rem;align-items:baseline;padding:.4rem 0;border-top:var(--line);font-size:.9375rem}
+.hist .d{flex:none;font-family:var(--sans);font-weight:600;font-size:.8125rem;font-variant-numeric:tabular-nums;color:var(--muted);width:5.2rem}
+.hist .w{flex:1 1 auto;min-width:0;font-family:var(--sans);font-weight:600;font-size:.875rem;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.hist .x{flex:none;background:none;border:0;cursor:pointer;color:var(--muted);font-size:1.1rem;line-height:1;padding:.4rem .5rem;min-height:36px}
+.hist .x:hover{color:var(--signal)}
+
+.cardtools{margin:1.1rem 0 0;padding-top:.8rem;border-top:var(--line);display:flex;flex-wrap:wrap;gap:.45rem}
+.cardtools .btn{font-size:.875rem;min-height:40px;padding:.35rem .7rem}
+
+/* ── filtering (CSS does the work; one class on the wrapper) ────── */
+.f-flare    .card:not([data-tags~="flare"]):not([data-tags~="mobility"]),
+.f-warmup   .card:not([data-tags~="mobility"]),
+.f-strength .card:not([data-tags~="scapular"]):not([data-tags~="serratus"]):not([data-tags~="load"]):not([data-tags~="overhead"]),
+.f-neck     .card:not([data-tags~="neck"]){display:none}
+.f-flare    .sec:not(:has(.card:is([data-tags~="flare"],[data-tags~="mobility"]))),
+.f-warmup   .sec:not(:has(.card[data-tags~="mobility"])),
+.f-strength .sec:not(:has(.card:is([data-tags~="scapular"],[data-tags~="serratus"],[data-tags~="load"],[data-tags~="overhead"]))),
+.f-neck     .sec:not(:has(.card[data-tags~="neck"])){display:none}
+/* hidden-by-user cards drop out of every filter until revealed */
+.list .card[data-off="1"]{display:none}
+.list.show-off .card[data-off="1"]{display:block;opacity:.55;border-style:dashed}
+.list .sec:not(:has(.card:not([data-off="1"]))){display:none}
+.list.show-off .sec:has(.card[data-off="1"]){display:block}
+.empty{display:none;margin:2.5rem 0;padding:1.1rem;border:1px dashed var(--haze);border-radius:4px;color:var(--muted)}
+.list.is-empty .empty{display:block}
+
+/* ── footer blocks ──────────────────────────────────────────────── */
+.closing{margin-top:3rem;border-top:var(--line);padding-top:2rem}
+.closing h2{margin-bottom:.6rem}
+.disclaim{margin-top:2.5rem;border-top:var(--line);padding-top:1.5rem;font-size:.9375rem;line-height:1.6;color:var(--muted);padding-bottom:3rem}
+.disclaim h2{font-size:1.25rem;color:var(--ink);margin-bottom:.6rem}
+.disclaim p{max-width:62ch}
+
+.panel{margin:.6rem 0 0;background:var(--surface);border:1px solid var(--haze);border-radius:4px;scroll-margin-top:7.5rem}
+.panel > summary{
+  cursor:pointer;list-style:none;padding:.75rem .9rem;min-height:44px;
+  display:flex;align-items:center;gap:.5rem;
+  font-family:var(--sans);font-weight:600;font-size:1rem;
+}
+.panel > summary::-webkit-details-marker{display:none}
+.panel > summary::marker{content:""}
+.panel > summary::after{content:"▾";margin-left:auto;color:var(--muted);transition:transform .2s ease}
+.panel[open] > summary::after{transform:rotate(180deg)}
+.panel .pbody{padding:0 .9rem 1rem;border-top:var(--line);padding-top:.9rem}
+.panel .pbody > p:first-child{margin-top:0}
+
+.field{margin:0 0 .8rem}
+.field label{display:block;font-family:var(--sans);font-weight:600;font-size:.8125rem;line-height:1.5;color:var(--muted);margin-bottom:.2rem}
+.field input[type=text],.field input[type=url],.field textarea{
+  width:100%;min-height:44px;padding:.45rem .6rem;background:var(--paper);
+  border:1px solid var(--haze);border-radius:3px;font-size:1rem;line-height:1.5;
+}
+.field textarea{min-height:5rem;resize:vertical;font-family:var(--serif)}
+.tagset{display:flex;flex-wrap:wrap;gap:.4rem}
+.tagset label{
+  display:flex;align-items:center;gap:.4rem;margin:0;min-height:44px;padding:.35rem .7rem;
+  border:1px solid var(--haze);border-radius:3px;cursor:pointer;
+  font-family:var(--sans);font-weight:600;font-size:.875rem;color:var(--ink);
+}
+.tagset input{accent-color:var(--kelp);width:18px;height:18px;flex:none}
+.tagset label:has(input:checked){border-color:var(--kelp);background:var(--kelp-wash)}
+.tagset label:has(input:focus-visible){outline:2.5px solid var(--kelp);outline-offset:2px}
+.actions{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.9rem}
+#dataBox{width:100%;min-height:8rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8125rem;line-height:1.45;padding:.6rem;background:var(--paper);border:1px solid var(--haze);border-radius:3px;resize:vertical;white-space:pre;overflow-wrap:normal;overflow-x:auto}
+.says{margin:.7rem 0 0;font-family:var(--sans);font-weight:600;font-size:.875rem;color:var(--kelp);min-height:1.3em}
+.says:empty{margin:0}
+.says[data-bad="1"]{color:var(--signal)}
+.offlist{list-style:none;margin:0;padding:0}
+.offlist li{display:flex;gap:.6rem;align-items:center;padding:.5rem 0;border-top:var(--line);font-size:.9375rem}
+.offlist li:first-child{border-top:0}
+.offlist .n{flex:1 1 auto;min-width:0}
+.custom-mark{font-family:var(--sans);font-weight:600;font-size:.6875rem;color:var(--kelp);border:1px solid var(--haze);border-radius:2px;padding:.05rem .3rem;margin-left:.4rem;vertical-align:.12em;white-space:nowrap}
+
+/* ── schematic figures ──────────────────────────────────────────── */
+.schem .ref{stroke:var(--haze)}
+.schem .bod{stroke:currentColor}
+.schem .arc{stroke:var(--kelp);stroke-dasharray:4 3.5}
+.schem .head{fill:var(--kelp);stroke:none}
+
+/* ── motion ─────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .seg{animation:none!important}
+}
+</style>
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<a class="vh" href="#main">Skip to the exercises</a>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 class="eyebrow">Rotator cuff and shoulder blade rehab</h1>
+    <p class="check-q" id="checkQ">How is the shoulder today? <span>Log it before you start.</span></p>
+    <div class="scale" role="group" aria-labelledby="checkQ">
+      <button class="seg" type="button" data-level="0" data-band="lo" aria-pressed="false" aria-label="0 out of 10" style="--i:0">0</button>
+      <button class="seg" type="button" data-level="1" data-band="lo" aria-pressed="false" aria-label="1 out of 10" style="--i:1">1</button>
+      <button class="seg" type="button" data-level="2" data-band="lo" aria-pressed="false" aria-label="2 out of 10" style="--i:2">2</button>
+      <button class="seg" type="button" data-level="3" data-band="lo" aria-pressed="false" aria-label="3 out of 10" style="--i:3">3</button>
+      <button class="seg" type="button" data-level="4" data-band="lo" aria-pressed="false" aria-label="4 out of 10" style="--i:4">4</button>
+      <button class="seg" type="button" data-level="5" data-band="hi" aria-pressed="false" aria-label="5 out of 10" style="--i:5">5</button>
+      <button class="seg" type="button" data-level="6" data-band="hi" aria-pressed="false" aria-label="6 out of 10" style="--i:6">6</button>
+      <button class="seg" type="button" data-level="7" data-band="hi" aria-pressed="false" aria-label="7 out of 10" style="--i:7">7</button>
+      <button class="seg" type="button" data-level="8" data-band="hi" aria-pressed="false" aria-label="8 out of 10" style="--i:8">8</button>
+      <button class="seg" type="button" data-level="9" data-band="hi" aria-pressed="false" aria-label="9 out of 10" style="--i:9">9</button>
+      <button class="seg" type="button" data-level="10" data-band="hi" aria-pressed="false" aria-label="10 out of 10" style="--i:10">10</button>
+    </div>
+    <div class="scale-key" aria-hidden="true"><span class="k-lo">train normally</span><span class="k-hi">flare day</span></div>
+    <p class="check-said" id="checkSaid" role="status" aria-live="polite"></p>
+    <p class="check-24h" id="check24" hidden></p>
+    <div class="trend" id="trend" hidden>
+      <div class="trend-bars" id="trendBars" aria-hidden="true"></div>
+      <p class="trend-axis" aria-hidden="true"><span>12 weeks ago</span><span>this week</span></p>
+      <p class="trend-note" id="trendNote"></p>
+    </div>
+    <p class="scale-note">Pain up to about <b>4</b> out of 10 during an exercise is acceptable if it settles within 24 hours. Pain that's still there the next day means the load was too high. This rule outranks every rep count below it.</p>
+  </div>
+</header>
+
+<nav class="filters" aria-label="Filter exercises">
+  <div class="wrap">
+    <div class="chips" role="group" aria-label="Show which exercises">
+      <button class="chip" type="button" data-filter="all"      aria-pressed="true">All</button>
+      <button class="chip" type="button" data-filter="flare"    aria-pressed="false">Flare day</button>
+      <button class="chip" type="button" data-filter="warmup"   aria-pressed="false">Warm-up</button>
+      <button class="chip" type="button" data-filter="strength" aria-pressed="false">Strength</button>
+      <button class="chip" type="button" data-filter="neck"     aria-pressed="false">Neck</button>
+    </div>
+    <p class="count" id="count" role="status" aria-live="polite">18 exercises</p>
+  </div>
+</nav>
+
+<main id="main">
+<div class="wrap">
+
+<details class="triage" id="triage">
+  <summary>
+    <h2>Before you start</h2>
+    <span class="tri-sum" id="triSum">Two self-tests and the red flags</span>
+    <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+  </summary>
+  <div class="tri-body">
+
+  <div class="flags">
+    <h3>Red flags</h3>
+    <p>See a clinician rather than working through this page:</p>
+    <ul>
+      <li>weakness that persists when the shoulder isn't painful;</li>
+      <li>the arm feeling like it might drop;</li>
+      <li>night pain that reliably wakes you, especially lying on that side;</li>
+      <li>a clear moment when something changed and the arm stopped working properly.</li>
+    </ul>
+  </div>
+
+  <div class="test" data-test="tender">
+    <h3>Where does it actually hurt?</h3>
+    <div class="locate">
+      <div class="locfig">
+        <svg class="loc" viewBox="0 0 84 120" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Diagram: the spot to press is on the outer upper arm, a third of the way from the point of the shoulder down to the elbow.">
+          <path class="bod" d="M30 8v104M30 14q14 0 20 12M50 26c6 14 8 26 6 44M56 70c0 16-2 28-4 42M38 30c4 14 6 26 6 40M44 70c0 16 0 28 0 42"/>
+          <path class="ref" d="M44 70h12"/>
+          <path class="guide" d="M47 25 50 70"/>
+          <circle class="dot" cx="47" cy="25" r="2.4"/>
+          <circle class="dot" cx="50" cy="70" r="2.4"/>
+          <circle class="tgt" cx="53" cy="40" r="7"/>
+          <circle class="tgtdot" cx="53" cy="40" r="2.1"/>
+          <path class="tgt" d="M53 29v3.5M53 47.5V51M42 40h3.5M60.5 40H64"/>
+        </svg>
+      </div>
+      <p>Press firmly into the outside of the upper arm, roughly a third of the way down from the point of the shoulder toward the elbow — not at the elbow, and not on the shoulder tip itself. That is the deltoid tuberosity, where the deltoid attaches to the humerus; it is a broad roughened ridge rather than a distinct lump, so hunt around a little. True deltoid insertional tendinopathy is sharply tender to that pressure. Referred rotator-cuff pain usually isn't — the area aches vaguely but pressing on it doesn't reproduce the pain. This matters because the deltoid insertion is a classic referral zone; the tissue that hurts and the tissue driving it are often several inches apart.</p>
+    </div>
+    <div class="ask" role="group" aria-label="What happened when you pressed">
+      <button class="btn btn-ghost" type="button" data-ans="yes" aria-pressed="false">Sharply tender</button>
+      <button class="btn btn-ghost" type="button" data-ans="no" aria-pressed="false">Just a vague ache</button>
+    </div>
+  </div>
+
+  <div class="test" data-test="neck">
+    <h3>Is the neck involved?</h3>
+    <p>Extend the neck, side-bend toward the painful side, hold a few seconds. If that reproduces the arm pain, the cervical spine is contributing, and the neck work belongs in your program.</p>
+    <div class="ask" role="group" aria-label="What happened when you side-bent">
+      <button class="btn btn-ghost" type="button" data-ans="yes" aria-pressed="false">It reproduced the arm pain</button>
+      <button class="btn btn-ghost" type="button" data-ans="no" aria-pressed="false">No change</button>
+    </div>
+  </div>
+
+  </div>
+</details>
+
+<div class="list" id="list">
+
+<p class="verdict" id="verdict" hidden></p>
+
+<section class="sec" data-sec="flare" data-slot="flare" aria-labelledby="h-flare">
+  <h2 id="h-flare">During a flare-up</h2>
+  <p class="sec-note">For days when the shoulder is too sore for normal training. Doing this beats resting completely — resting makes tendon pain worse over a few weeks.</p>
+
+  <details class="card" data-id="iso-er" data-tags="flare">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M98 4V86"/>
+        <circle class="bod" cx="40" cy="18" r="7"/>
+        <path class="bod" d="M40 25v29M40 54l-7 28M40 54l8 28M40 31l3 19M43 50l41-6"/>
+        <path class="arc" d="M60 62a28 28 0 0 0 25-11"/>
+        <path class="head" d="M78 45l10 6-9 6z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Isometric external rotation</h3>
+        <span class="why">What to do when the shoulder is too sore for the rest of the program.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap" data-yt="xZKlQlkAeZA" data-title="Isometric external rotation"><a class="vidlink" href="https://www.youtube.com/watch?v=xZKlQlkAeZA" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Stand side-on to a doorframe with the sore arm nearest it.</li>
+          <li>Bend that elbow to 90° and tuck it against your ribs, palm facing in, back of the wrist touching the frame.</li>
+          <li>Press the back of the wrist outward into the frame at about 70% effort. Nothing moves.</li>
+          <li>Hold for the count, relax fully, repeat.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Effort</dt><dd>About 70% of maximum</dd>
+        <dt>Hold</dt><dd>30–45 seconds × 4–5 reps</dd>
+        <dt>Frequency</dt><dd>2–3 times a day</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>The elbow drifting away from your side, or shrugging. Nothing should move.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>Isometric holds — push hard, nothing moves — produce short-term pain relief in tendinopathy (an overloaded tendon that has become irritable) without the tissue stress of moving through range, which means you can keep loading the cuff rather than resting it — and rest reliably makes tendinopathy worse over the medium term. The evidence for the analgesic effect is mixed across studies, but it is low-risk and costs nothing to try.</p>
+      </div>
+      <p class="src">Source: <a href="https://library.theprehabguys.com/vimeo-video/shoulder-external-rotation-isometrics/" target="_blank" rel="noopener noreferrer">Prehab Guys</a> · <a href="https://www.rehabhero.ca/exercise/wall-isometric-shoulder-external-rotation" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+</section>
+
+<section class="sec" data-sec="scapular" data-slot="scapular" aria-labelledby="h-scap">
+  <h2 id="h-scap">Rear cuff &amp; shoulder blade</h2>
+  <p class="sec-note">Climbing and paddling pull the arm inward and forward. These train the muscles that pull it back out, and the ones that position the shoulder blade.</p>
+
+  <details class="card" data-id="sidelying-er" data-tags="scapular">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M6 80h108"/>
+        <circle class="bod" cx="26" cy="58" r="7"/>
+        <path class="bod" d="M33 59h41M74 57l18 6 8 14M40 62l-5 14M43 56l5 12M48 68l18-10"/>
+        <path class="arc" d="M60 73a20 20 0 0 0 11-18"/>
+        <path class="head" d="M66 58l5-10 6 9z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Side-lying external rotation</h3>
+        <span class="why">Trains the muscles that rotate the arm outward — the opposite of every climbing pull.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap" data-yt="Z2ZySX-U4aY" data-title="Side-lying external rotation"><a class="vidlink" href="https://www.youtube.com/watch?v=Z2ZySX-U4aY" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Lie on your side with the sore arm on top.</li>
+          <li>Bend that elbow to 90° and pin it against your ribs, forearm resting across your belly, light weight in the hand.</li>
+          <li>Draw the shoulder blade back first, then rotate the forearm up toward the ceiling.</li>
+          <li>Lower slowly. The elbow stays at 90° and glued to your side throughout.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Start</dt><dd>3 × 10–15 light</dd>
+        <dt>Progress to</dt><dd>3–4 × 6–10</dd>
+        <dt>Tempo</dt><dd>3 seconds up, 3 seconds down</dd>
+        <dt>Frequency</dt><dd>2–3 sessions a week</dd>
+        <dt>Note</dt><dd class="prose">Heavy slow resistance. The tempo matters more than the rep count.</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>Straightening the elbow as you rotate. Keep it at 90° throughout.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>Climbing and surf paddling are overwhelmingly internal-rotation dominant. This loads infraspinatus and teres minor — the main external rotators — in a position where the shoulder blade can't do the work instead. Starting the motion with the shoulder blade pulling back, then the arm, is what separates this from a wrist exercise.</p>
+      </div>
+      <p class="src">Source: <a href="https://library.theprehabguys.com/vimeo-video/side-lying-shoulder-external-rotation-band/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+
+  <details class="card" data-id="band-er-45" data-tags="scapular">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M10 20v50M10 52l38-22"/>
+        <circle class="bod" cx="74" cy="18" r="7"/>
+        <path class="bod" d="M74 25v29M74 54l-7 28M74 54l8 28M74 32L57 45M57 45l-9-15"/>
+        <path class="arc" d="M50 48a17 17 0 0 0 8-16"/>
+        <path class="head" d="M53 33l6-9 5 9z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Banded external rotation, arm out at 45°</h3>
+        <span class="why">The same outward rotation, trained with the arm raised, closer to where it hurts.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap"><a class="vidlink" href="https://www.getwellen.com/exercises/standing-scapular-retraction-with-external-rotation-with-resistance" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Anchor a light band at about elbow height and stand side-on, holding it in the hand of the sore arm so it pulls across your body.</li>
+          <li>Lift that arm out from your side to about 45° — halfway between hanging down and straight out — elbow bent to 90°.</li>
+          <li>Holding that arm position, rotate the forearm back and up against the band.</li>
+          <li>Return slowly. Only the forearm moves; the upper arm stays put.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Sets &amp; reps</dt><dd>3 × 10–12 per side</dd>
+        <dt>Frequency</dt><dd>2–3 times a week</dd>
+        <dt>Load</dt><dd>Light band</dd>
+        <dt>Note</dt><dd class="prose">These muscles are small and fatigue fast.</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>The torso twisting to help. Keep the body still.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>Working the cuff only with the elbow at your side builds strength in a position climbing never uses. Moving the arm out to 45° starts loading the cuff closer to the abducted, rotated positions where symptoms show up. Add it once the 0° version is comfortable.</p>
+      </div>
+      <p class="src">Source: <a href="https://www.getwellen.com/exercises/standing-scapular-retraction-with-external-rotation-with-resistance" target="_blank" rel="noopener noreferrer">Wellen</a> · <a href="https://www.orthoinfo.org/recovery/rotator-cuff-and-shoulder-conditioning-program/" target="_blank" rel="noopener noreferrer">OrthoInfo</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+
+  <details class="card" data-id="wall-slide" data-tags="scapular mobility">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M96 4v82"/>
+        <circle class="bod" cx="52" cy="26" r="7"/>
+        <path class="bod" d="M52 33v25M52 58l-7 24M52 58l8 24M52 38l20 6M72 44l16-18"/>
+        <path class="arc" d="M82 58a30 30 0 0 1 10-32"/>
+        <path class="head" d="M87 29l6-11 5 11z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Wall slide with lift-off</h3>
+        <span class="why">Trains the shoulder blade to rotate properly as the arm goes overhead.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap" data-yt="k_zZ6XB9jds" data-title="Wall slide with lift-off"><a class="vidlink" href="https://www.youtube.com/watch?v=k_zZ6XB9jds" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Face a wall about a forearm's length back. Put both forearms on it, elbows at shoulder height, little-finger edge of each hand against the wall.</li>
+          <li>Press into the wall and slide the forearms up, letting the shoulder blades travel up and around.</li>
+          <li>At the top, lift both forearms an inch off the wall and hold.</li>
+          <li>Put them back and slide down. Keep the ribs down — don't arch your back to get higher.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Sets &amp; reps</dt><dd>2–3 × 8–10 slides</dd>
+        <dt>Hold</dt><dd>3–5 seconds each lift-off</dd>
+        <dt>Frequency</dt><dd class="prose">Low enough load to do daily.</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>The lower back arching to make up range the shoulder doesn't have.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>Trains upward rotation of the shoulder blade — the movement that clears space for the rotator cuff as the arm rises. The lift-off at the top is the part that recruits lower trapezius; without it this is mostly a mobility drill. Pressing into the wall through the pinky side of the hands and the elbows throughout is what keeps serratus engaged.</p>
+      </div>
+      <p class="src">Source: <a href="https://library.theprehabguys.com/vimeo-video/wall-slide/" target="_blank" rel="noopener noreferrer">Prehab Guys — wall slide</a> · <a href="https://library.theprehabguys.com/vimeo-video/wall-slide-lift-off-band/" target="_blank" rel="noopener noreferrer">lift-off variant</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+
+  <details class="card" data-id="prone-y" data-tags="scapular">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M6 78h108"/>
+        <circle class="bod" cx="34" cy="62" r="7"/>
+        <path class="bod" d="M41 63l45 3M86 66l22 4M48 64L36 51M36 51l-9-10"/>
+        <path class="arc" d="M19 52a17 17 0 0 1 9-14"/>
+        <path class="head" d="M22 41l8-7 1 11z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Prone Y raise</h3>
+        <span class="why">Trains the lower trapezius, which pulls the shoulder blade down and back.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap"><a class="vidlink" href="https://library.theprehabguys.com/vimeo-video/prone-ys/" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Lie face down with your forehead on a folded towel.</li>
+          <li>Reach both arms overhead along the floor, angled about 45° out from your body, thumbs pointing up — a Y shape.</li>
+          <li>Slide the shoulder blades down toward your back pockets, then lift the arms a few inches.</li>
+          <li>Hold at the top, then lower slowly.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Sets &amp; reps</dt><dd>2–3 × 10–15</dd>
+        <dt>Hold</dt><dd>2–3 seconds at the top</dd>
+        <dt>Note</dt><dd class="prose">Lower trap is endurance-biased, so higher reps at light load are right here.</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>Shrugging. If you feel it in the upper trapezius, at the top of the shoulder, lift less high.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>Standing up, gravity pulls in roughly the same direction the lower trapezius does, so the muscle barely has to work. Lying face down turns gravity into resistance: the lower trapezius has to do the lifting, and stronger muscles cannot substitute for it. This is standard in shoulder rehab for exactly that reason.</p>
+      </div>
+      <p class="src">Source: <a href="https://library.theprehabguys.com/vimeo-video/prone-ys/" target="_blank" rel="noopener noreferrer">Prehab Guys — prone Y</a> · <a href="https://library.theprehabguys.com/vimeo-video/prone-lift-off/" target="_blank" rel="noopener noreferrer">prone lift-off</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+
+  <details class="card" data-id="face-pull" data-tags="scapular">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M112 8v34M48 24l64-8"/>
+        <circle class="bod" cx="38" cy="22" r="7"/>
+        <path class="bod" d="M38 29v27M38 56l-7 26M38 56l8 26M38 35l20 5M58 40l-10-16"/>
+        <path class="arc" d="M84 34a22 22 0 0 0-19-9"/>
+        <path class="head" d="M70 20l-9 5 9 6z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Face pull</h3>
+        <span class="why">High-rep work for the back of the shoulder. Hard to do badly.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap"><a class="vidlink" href="https://www.rehabhero.ca/exercise/face-pulls" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Set a band or cable at about head height. Hold one end in each hand, palms facing each other.</li>
+          <li>Step back until there is tension, arms straight out in front of you.</li>
+          <li>Pull toward your forehead, driving the elbows out wide and high.</li>
+          <li>At the end, rotate your hands back so the knuckles point behind you. Return slowly.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Sets &amp; reps</dt><dd>3 × 12–20</dd>
+        <dt>Load</dt><dd>Light to moderate</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>Turning it into a row. The external rotation at the end is the point.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>Combines pulling the arms out to the sides with rotating them back — close to the exact opposite of the climbing pull pattern. You can do a lot of it without much risk, so it's an easy place to add reps.</p>
+      </div>
+      <p class="src">Source: <a href="https://www.rehabhero.ca/exercise/face-pulls" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+
+  <details class="card" data-id="climbing-overview" data-tags="scapular">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M10 20v50M10 52l38-22"/>
+        <circle class="bod" cx="74" cy="18" r="7"/>
+        <path class="bod" d="M74 25v29M74 54l-7 28M74 54l8 28M74 32L57 45M57 45l-9-15"/>
+        <path class="arc" d="M50 48a17 17 0 0 0 8-16"/>
+        <path class="head" d="M53 33l6-9 5 9z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Climbing-specific overview</h3>
+        <span class="why">A physiotherapist works through the whole rotator-cuff progression for climbers.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap" data-list="PLoxfqGRSN_tFiHzQ7j7hCzBr035OAf1l7" data-title="Rotator cuff exercises for climbers"><a class="vidlink" href="https://www.youtube.com/playlist?list=PLoxfqGRSN_tFiHzQ7j7hCzBr035OAf1l7" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the playlist</a></div>
+      <dl class="dose">
+        <dt>For strength</dt><dd>3–4 × 8</dd>
+        <dt>For endurance</dt><dd>3–4 × 20</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>Nothing — this is a video to watch, not an exercise to do.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>A progression from easier to harder external rotator work, presented by a physiotherapist who works with climbers. Worth watching once end-to-end before starting, for the programming logic as much as the exercises. The rep guidance is goal-dependent: lower reps and higher resistance if the goal is bouldering strength, higher reps and lower resistance if the goal is multi-pitch endurance.</p>
+      </div>
+      <p class="src">Source: <a href="https://www.hoopersbeta.com/library/top-6-exercises-for-rotator-cuffs-strong-shoulders-pt-1" target="_blank" rel="noopener noreferrer">Hooper's Beta</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+</section>
+
+<section class="sec" data-sec="serratus" data-slot="serratus" aria-labelledby="h-serr">
+  <h2 id="h-serr">Shoulder blade control</h2>
+  <p class="sec-note">Serratus anterior is the muscle that holds the shoulder blade flat against the ribs. If it is weak, the blade lifts away and the rotator cuff has nothing steady to pull against.</p>
+
+  <details class="card" data-id="pushup-plus" data-tags="serratus">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M6 80h108"/>
+        <circle class="bod" cx="27" cy="38" r="7"/>
+        <path class="bod" d="M34 41l42 11 32 24M36 44l-2 34"/>
+        <path class="arc" d="M50 36a18 18 0 0 1 3-14"/>
+        <path class="head" d="M48 25l6-10 5 10z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Push-up plus</h3>
+        <span class="why">Strengthens the muscle that holds the shoulder blade flat against the ribs.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap"><a class="vidlink" href="https://www.rehabhero.ca/exercise/push-up-plus" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Get into a push-up position — on the floor, or hands on a bench or wall if the floor provokes it.</li>
+          <li>Lower into the push-up and press back up as normal.</li>
+          <li>At the top, with the elbows already straight, keep pushing so the shoulder blades spread apart and your upper back rounds slightly.</li>
+          <li>Release and repeat. That last push is the exercise.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Sets &amp; reps</dt><dd>3 × 10–15</dd>
+        <dt>Frequency</dt><dd>2–3 times a week</dd>
+        <dt>Easier version</dt><dd class="prose">Wall or incline version if the floor version provokes symptoms.</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>Stopping at the top of the push-up. That last push, spreading the shoulder blades apart, is the exercise.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>Serratus anterior holds the shoulder blade flat against the ribcage. When it is weak the blade lifts away from the ribs — this is called winging — and the rotator cuff no longer has a steady base to pull against. A push-up is closed-chain — your hands stay planted — so the blade can move freely on the ribcage while bodyweight supplies the resistance. The "plus" at the top is the protraction, pushing the shoulder blades apart, and that is the part that does the work.</p>
+      </div>
+      <p class="src">Source: <a href="https://www.rehabhero.ca/exercise/push-up-plus" target="_blank" rel="noopener noreferrer">Rehab Hero</a> · <a href="https://theprehabguys.com/serratus-anterior-exercises/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+
+  <details class="card" data-id="bear-scap-pushup" data-tags="serratus">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M6 80h108"/>
+        <circle class="bod" cx="28" cy="42" r="7"/>
+        <path class="bod" d="M35 44l43 4M38 46l-2 32M78 48l6 18-14 8"/>
+        <path class="arc" d="M44 36a16 16 0 0 1 3-12"/>
+        <path class="head" d="M42 27l6-10 5 10z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Bear-position scapular push-up</h3>
+        <span class="why">The same muscle as the push-up plus, slower and harder to cheat.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap"><a class="vidlink" href="https://www.rehabhero.ca/exercise/bear-crawl-scapular-push-up" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Start on hands and knees — hands under the shoulders, knees under the hips.</li>
+          <li>Tuck your toes and lift the knees an inch or two off the floor. Hold there with a flat back.</li>
+          <li>Keeping the elbows straight, let the chest sink slightly so the shoulder blades squeeze together.</li>
+          <li>Push the floor away so the blades spread apart again. Slow, and only the blades move.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Sets &amp; reps</dt><dd>3 × 8–12</dd>
+        <dt>Tempo</dt><dd class="prose">Slow.</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>The hips rising or the back sagging. The only thing that moves is the shoulder blades.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>Knees hovering, spine neutral, moving only the shoulder blades. Works serratus on its own, without loading the shoulder through its range, which makes it usable even on days when pressing is uncomfortable.</p>
+      </div>
+      <p class="src">Source: <a href="https://www.rehabhero.ca/exercise/bear-crawl-scapular-push-up" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+
+  <details class="card" data-id="kb-drag-through" data-tags="serratus">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M6 80h108"/>
+        <rect class="ref" x="60" y="66" width="13" height="11" rx="2"/>
+        <path class="ref" d="M63 66a4 4 0 0 1 7 0"/>
+        <circle class="bod" cx="27" cy="38" r="7"/>
+        <path class="bod" d="M34 41l42 11 32 24M36 44l-2 34"/>
+        <path class="arc" d="M84 72H74"/>
+        <path class="head" d="M76 67l-9 5 9 5z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Kettlebell plank drag-through</h3>
+        <span class="why">Makes the shoulder blade hold still while your body is pulled sideways.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap"><a class="vidlink" href="https://library.theprehabguys.com/vimeo-video/kettlebell-plank-drag-through/" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Get into a push-up position with the hands a little wider than the shoulders and the feet wide apart.</li>
+          <li>Put a kettlebell on the floor just outside one hand.</li>
+          <li>Reach under your chest with the opposite hand and drag the bell across to the other side.</li>
+          <li>Put the hand back down, reset, and drag it back. The hips stay level — nothing twists.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Sets &amp; reps</dt><dd>3 × 6–10 drags per side</dd>
+        <dt>Stop at</dt><dd class="prose">Form degrading, not at a number.</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>The shoulder blade lifting off the ribcage on the supporting arm.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>A progression that adds twisting force underneath a shoulder blade that has to stay still — which is what happens in nearly every overhead sport. The published breakdown is unusually good on what failure looks like: the shoulder blade lifts away from the ribs while the movement still looks impressive.</p>
+      </div>
+      <p class="src">Source: <a href="https://library.theprehabguys.com/vimeo-video/kettlebell-plank-drag-through/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+</section>
+
+<section class="sec" data-sec="load" data-slot="load" aria-labelledby="h-load">
+  <h2 id="h-load">Cuff under load</h2>
+  <p class="sec-note">Keeping the shoulder joint steady while holding something unstable. This is what is not working when your arm hurts on a steering wheel.</p>
+
+  <details class="card" data-id="bottoms-up-press" data-tags="load">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M51 20V10q0-5 7-5t7 5v10zM55 20q3 6 6 0"/>
+        <circle class="bod" cx="36" cy="26" r="7"/>
+        <path class="bod" d="M36 33v23M36 56l-7 26M36 56l8 26M36 38l20 6M56 44V26"/>
+        <path class="arc" d="M40 14a24 24 0 0 1 36 0"/>
+        <path class="head" d="M72 8l8 8-9 4z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Bottoms-up kettlebell press</h3>
+        <span class="why">Forces the rotator cuff to steady a wobbling weight. Light and slow on purpose.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap"><a class="vidlink" href="https://library.theprehabguys.com/vimeo-video/bottoms-up-floor-press-kettlebell/" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Hold a light kettlebell by the handle with the bell upside down above your fist.</li>
+          <li>Grip hard and bring it to shoulder height — forearm vertical, wrist straight, elbow under the bell.</li>
+          <li>Press straight up until the arm locks out, keeping the bell balanced above you.</li>
+          <li>Lower under control. If the bell keeps tipping, go lighter.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Sets &amp; reps</dt><dd>3 × 5–8 per arm</dd>
+        <dt>Frequency</dt><dd>1–2 times a week</dd>
+        <dt>Load</dt><dd class="prose">Capped by grip and stability, not strength, so it stays light.</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>Rushing. The whole value is in the control.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>Inverting the bell makes the load unstable, which forces the cuff to brace automatically, without you thinking about it, to keep the humeral head — the ball of the shoulder joint — centred. You can't muscle through it with the deltoid — the bell falls. That reflexive stabilization under sustained low-level load is exactly what a shoulder that hurts on a steering wheel is failing to do.</p>
+      </div>
+      <p class="src">Source: <a href="https://library.theprehabguys.com/vimeo-video/bottoms-up-floor-press-kettlebell/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+
+  <details class="card" data-id="bottoms-up-carry" data-tags="load">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M51 20V10q0-5 7-5t7 5v10zM55 20q3 6 6 0"/>
+        <circle class="bod" cx="36" cy="26" r="7"/>
+        <path class="bod" d="M36 33v23M36 56l-7 26M36 56l8 26M36 38l20 6M56 44V26"/>
+        <path class="arc" d="M74 60h24"/>
+        <path class="head" d="M94 55l10 5-10 5z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Bottoms-up carry</h3>
+        <span class="why">The same as the press, but you hold the position instead of repeating it.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap"><a class="vidlink" href="https://www.rehabhero.ca/exercise/bottoms-up-kettlebell-carry" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Hold a light kettlebell upside down at shoulder height, elbow bent, forearm vertical.</li>
+          <li>Grip hard and brace your trunk so the bell stays balanced.</li>
+          <li>Walk for the distance, or just stand still for the time, keeping it upright.</li>
+          <li>Put it down before your grip fails, then swap sides.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Carries</dt><dd>3–4 per arm</dd>
+        <dt>Each</dt><dd>20–30 seconds, or 20–40 metres</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>The wrist bending. Keep the forearm stacked under the bell.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>Closer to the real demand — holding a position on the wall, or a steering wheel — than any rep-based version.</p>
+      </div>
+      <p class="src">Source: <a href="https://www.rehabhero.ca/exercise/bottoms-up-kettlebell-carry" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+
+  <details class="card" data-id="turkish-get-up" data-tags="load overhead">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M6 82h108"/>
+        <rect class="ref" x="51" y="2" width="14" height="9" rx="2"/>
+        <circle class="bod" cx="46" cy="36" r="7"/>
+        <path class="bod" d="M48 43l6 19M54 62l-16 8 2 12M54 62l20 10 14 10M50 44l8-33"/>
+        <path class="arc" d="M22 64a26 26 0 0 1 6-22"/>
+        <path class="head" d="M22 45l8-9 3 11z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Turkish get-up</h3>
+        <span class="why">Moves the shoulder through its full range under weight, and shows which positions you can't control.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap"><a class="vidlink" href="https://theprehabguys.com/learn-the-turkish-get-up/" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Lie on your back holding a light weight straight up over one shoulder. Bend the same-side knee and put that foot flat on the floor.</li>
+          <li>Roll onto the opposite forearm, then onto that hand, pushing up to sitting. The weight stays locked overhead.</li>
+          <li>Lift your hips, sweep the straight leg back underneath you into a half-kneeling position, then stand up.</li>
+          <li>Reverse every step to get back down. Keep your eyes on the weight through the early steps.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Reps</dt><dd>3–5 per side</dd>
+        <dt>Load</dt><dd class="prose">Very light or unloaded — a shoe balanced on the fist works — for the first several weeks.</dd>
+        <dt>Note</dt><dd class="prose">This is a skill before it's a strength exercise.</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>Losing sight of the weight. Eyes stay on it through the early phases.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>Takes the shoulder through full range under continuous load while the torso moves underneath it — which is what actually happens surfing and climbing. The points where it breaks down tend to be the points where control is missing, so it tells you something as well as trains something. Do the wall-based overhead range self-check in the linked article before loading it.</p>
+      </div>
+      <p class="src">Source: <a href="https://theprehabguys.com/learn-the-turkish-get-up/" target="_blank" rel="noopener noreferrer">Prehab Guys</a> · <a href="https://www.rehabhero.ca/exercise/turkish-get-up" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+</section>
+
+<section class="sec" data-sec="overhead" data-slot="overhead" aria-labelledby="h-oh">
+  <h2 id="h-oh">Overhead strength</h2>
+  <p class="sec-note">Pressing weight overhead, starting at an angle the shoulder tolerates and getting steeper as it improves.</p>
+
+  <details class="card" data-id="overhead-progression" data-tags="overhead">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M6 82h108M10 80l56-46"/>
+        <circle class="bod" cx="88" cy="24" r="7"/>
+        <path class="bod" d="M88 31v25M88 56l-7 26M88 56l8 26M88 36l-12 8M76 44l-10-10"/>
+        <path class="arc" d="M56 46a22 22 0 0 1 4-18"/>
+        <path class="head" d="M53 31l9-8 2 11z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Overhead pressing progression</h3>
+        <span class="why">Builds overhead pressing strength in three stages, starting at an easier angle.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap"><a class="vidlink" href="https://www.rehabhero.ca/exercise/landmine-shoulder-press" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li><b>Landmine press.</b> Wedge one end of a barbell into a corner. Hold the other end at shoulder height in one hand.</li>
+          <li>Stand square with the ribs down and press the bar up and away along its natural arc, then lower slowly.</li>
+          <li><b>Incline press.</b> Same movement on an inclined bench, once the landmine version is comfortable.</li>
+          <li><b>Overhead press.</b> Straight up, last. Add weight at each stage before you make the angle steeper.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Sets &amp; reps</dt><dd>3 × 8–12</dd>
+        <dt>Strength work</dt><dd>1–2 times a week</dd>
+        <dt>Mobility work</dt><dd>3–4 times a week</dd>
+        <dt>Note</dt><dd class="prose">The supporting mobility work usually goes in the warm-up.</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>The ribs lifting and the lower back arching to find range the shoulder doesn't have.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>The landmine angle sits roughly in the scapular plane — the direction the shoulder blade naturally faces — which is mechanically kinder to the tendons running under the bony tip of the shoulder than pressing straight overhead. That lets you load the pressing pattern before full overhead range is comfortable, then progress the angle as tolerance improves.</p>
+
+      </div>
+      <p class="src">Source: <a href="https://www.rehabhero.ca/exercise/landmine-shoulder-press" target="_blank" rel="noopener noreferrer">Rehab Hero</a> · <a href="https://theprehabguys.com/must-do-exercises-to-master-overhead-lifting/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+</section>
+
+<section class="sec" data-sec="mobility" data-slot="mobility" aria-labelledby="h-mob">
+  <h2 id="h-mob">Mobility</h2>
+  <p class="sec-note">Daily, in the warm-up. About ten minutes for all three.</p>
+
+  <details class="card" data-id="cross-body" data-tags="mobility">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle class="bod" cx="62" cy="18" r="7"/>
+        <path class="bod" d="M62 25v31M62 56l-7 26M62 56l8 26M62 32L32 41M62 33L45 51M45 51l-9-9"/>
+        <path class="arc" d="M46 28a22 22 0 0 0-17 6"/>
+        <path class="head" d="M34 29l-9 6 10 4z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Cross-body adduction stretch</h3>
+        <span class="why">Stretches the back of the shoulder, which tightens up from overhead sport.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap" data-yt="YoZ4O09q6rg" data-title="Cross-body adduction stretch"><a class="vidlink" href="https://www.youtube.com/watch?v=YoZ4O09q6rg" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Stand, or lie on your back, and bring the sore arm straight across your chest.</li>
+          <li>Use the other hand to pull it in — grip just above the elbow, not at the wrist.</li>
+          <li>Keep that shoulder pressed back and down. Don't let it roll forward toward your chin.</li>
+          <li>Hold and breathe normally. Doing it lying down, or with your back to a wall, makes the shoulder easier to keep back.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Hold</dt><dd>30 seconds × 3–5 per side</dd>
+        <dt>Frequency</dt><dd>Daily or most days</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>Letting the shoulder roll forward. That's the usual error and it defeats the whole stretch. Keep the ball of the joint back — doing it against a wall or lying down helps.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>The muscles and capsule at the back of the shoulder tighten in the dominant arm of overhead athletes, and that tightness limits how far the arm can rotate inward and how far it can come across the chest — which shifts the ball of the shoulder joint forward during overhead motion. Research comparing this to the sleeper stretch found the cross-body approach significantly more effective at restoring internal rotation.</p>
+      </div>
+      <p class="src">Source: <a href="https://theprehabguys.com/posterior-shoulder-mobility-drills/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+
+  <details class="card" data-id="foam-roller-t-spine" data-tags="mobility">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M6 81h108"/>
+        <circle class="ref" cx="56" cy="70" r="11"/>
+        <circle class="bod" cx="24" cy="54" r="7"/>
+        <path class="bod" d="M31 57l25 4 22 8M78 69l14-12 12 22M34 58l-9-13"/>
+        <path class="arc" d="M42 42a20 20 0 0 0-16-5"/>
+        <path class="head" d="M31 32l-9 5 9 6z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Foam roller thoracic extension</h3>
+        <span class="why">Restores mid-back extension, so the shoulder doesn't have to supply it.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap"><a class="vidlink" href="https://www.rehabhero.ca/exercise/foam-roller-thoracic-extension" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Lie on your back with a foam roller across your mid-back, just under the shoulder blades.</li>
+          <li>Support your head in both hands and keep your hips on the floor.</li>
+          <li>Let your upper back arch backwards over the roller. Either hold there, or do slow repeated extensions.</li>
+          <li>Move the roller a few inches up or down and repeat at two or three spots.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Hold</dt><dd>About 2 minutes at each of 2–3 segments</dd>
+        <dt>Or</dt><dd>10–15 slow extensions per segment</dd>
+        <dt>Frequency</dt><dd>Most days</dd>
+        <dt>Note</dt><dd class="prose">Use the reps version if sustained holds are uncomfortable.</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>The pelvis lifting. Keep it down so the extension happens in the thoracic spine, not the lumbar.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>When the thoracic spine — the mid-back — won't extend, the shoulder joint itself has to produce range it doesn't have, loading the cuff at end range. Nearly every surfer and climber is stiff here.</p>
+      </div>
+      <p class="src">Source: <a href="https://www.rehabhero.ca/exercise/foam-roller-thoracic-extension" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+
+  <details class="card" data-id="doorway-pec" data-tags="mobility">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M96 4v82"/>
+        <circle class="bod" cx="48" cy="20" r="7"/>
+        <path class="bod" d="M48 27v27M48 54l-10 28M48 54l12 24M48 32l26-2M74 30l10-16"/>
+        <path class="arc" d="M40 40a20 20 0 0 0-14 7"/>
+        <path class="head" d="M32 42l-10 5 9 6z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Doorway pec stretch</h3>
+        <span class="why">Stretches the chest muscles that pull the shoulder forward when you sit.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap"><a class="vidlink" href="https://www.rehabhero.ca/exercise/doorway-chest-stretch" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Stand in a doorway and put one forearm flat against the frame, elbow at about shoulder height.</li>
+          <li>Step the same-side foot through the doorway.</li>
+          <li>Turn your chest gently away from that arm until you feel a stretch across the front of the chest.</li>
+          <li>Hold. Ease off if you feel it pinching in the front of the shoulder joint instead.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Hold</dt><dd>30 seconds per side × 2–3</dd>
+        <dt>Frequency</dt><dd>Daily</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>Over-stretching into the front of the shoulder joint. It should be felt across the chest.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>A short pectoralis minor — a small muscle running under the chest to the shoulder blade — tips the shoulder blade forward — the same postural fault that sitting at a steering wheel with unsupported arms produces.</p>
+      </div>
+      <p class="src">Source: <a href="https://www.rehabhero.ca/exercise/doorway-chest-stretch" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+</section>
+
+<section class="sec" data-sec="neck" data-slot="neck" aria-labelledby="h-neck">
+  <h2 id="h-neck">Neck</h2>
+  <p class="sec-note" id="neckNote">Conditional. Take the neck self-test at the top to find out whether this applies to you.</p>
+
+  <details class="card" data-id="supine-chin-nod" data-tags="neck">
+    <summary>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="ref" d="M6 78h108"/>
+        <circle class="bod" cx="26" cy="58" r="7"/>
+        <path class="bod" d="M33 61l41 5M74 66l16-10 12 18M42 64l-7 11"/>
+        <path class="arc" d="M14 56a12 12 0 0 1 9-13"/>
+        <path class="head" d="M17 46l8-7 2 10z"/>
+      </svg></span>
+      <span class="sum">
+        <h3 class="name">Chin nod, lying down</h3>
+        <span class="why">Neck strengthening. Only if the neck self-test reproduced the arm pain.</span>
+        <span class="status" data-role="status"></span>
+      </span>
+      <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+    </summary>
+    <div class="body">
+      <div class="vidwrap"><a class="vidlink" href="https://www.rehabhero.ca/exercise/chin-tucks" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="howto">
+        <h4 class="blk">How to do it</h4>
+        <ol>
+          <li>Lie on your back with your knees bent and your head resting flat on the floor.</li>
+          <li>Without lifting your head, nod your chin down toward your throat — a small 'yes' movement.</li>
+          <li>Hold, keeping the front of your neck soft and slack.</li>
+          <li>Release all the way between reps.</li>
+        </ol>
+      </div>
+      <dl class="dose">
+        <dt>Hold</dt><dd>5 seconds</dd>
+        <dt>Sets &amp; reps</dt><dd>3 × 10</dd>
+      </dl>
+      <p class="watch"><span class="lbl">Watch for</span>The front of the neck bulging. That's sternocleidomastoid, the rope-like muscle down the side of the neck, doing the work instead of the deep ones.</p>
+      <div data-role="log"></div>
+      <div class="whyblk">
+        <h4 class="blk">Why it's here</h4>
+      <p>If the C5 nerve root is contributing to the deltoid-region pain, cuff work alone won't be enough. Building endurance in the deep cervical flexors — the small muscles at the front of the neck — addresses the forward-head posture that loads the upper cervical segments — the same posture driving produces.</p>
+      </div>
+      <p class="src">Source: <a href="https://www.rehabhero.ca/exercise/chin-tucks" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+      <div class="cardtools" data-role="tools"></div>
+    </div>
+  </details>
+</section>
+
+<p class="empty">Nothing here with that filter. Everything in this group is hidden — open <b>Hidden exercises</b> at the foot of the page to bring something back.</p>
+
+</div><!-- /.list -->
+
+<section class="sec closing" aria-labelledby="h-week">
+  <h2 id="h-week">How often, and for how long</h2>
+  <p>Mobility daily or near-daily, in the warm-up. Rear cuff, shoulder blade and serratus work three times a week. Cuff-under-load and overhead pressing twice a week, ideally not the day after hard climbing.</p>
+  <p>Expect three to four months before the shoulder is meaningfully better. The most common way this fails is doing it for three weeks, feeling better, and stopping before the weight ever got heavy enough to change anything.</p>
+</section>
+
+<section class="sec" aria-labelledby="h-mine">
+  <h2 id="h-mine" class="vh">My stuff</h2>
+
+  <details class="panel" id="addPanel">
+    <summary>Add an exercise</summary>
+    <div class="pbody">
+      <p class="sec-note" style="margin-bottom:1rem">Anything you add is stored on this device only, and shows up in the section matching its first tag.</p>
+      <form id="addForm" novalidate>
+        <input type="hidden" id="fEdit" value="">
+        <div class="field"><label for="fName">Name</label><input type="text" id="fName" required autocomplete="off"></div>
+        <div class="field"><label for="fWhy">One-line why — what it's for</label><input type="text" id="fWhy" autocomplete="off"></div>
+        <div class="field"><label for="fDose">Dose — sets, reps, frequency</label><input type="text" id="fDose" autocomplete="off" placeholder="3 × 10, twice a week"></div>
+        <div class="field"><label for="fSteps">How to do it — one step per line</label><textarea id="fSteps" rows="4" placeholder="Set up like this&#10;Then do this&#10;Then this"></textarea></div>
+        <div class="field"><label for="fRat">Why it's here (optional)</label><textarea id="fRat"></textarea></div>
+        <div class="field"><label for="fWatch">Watch for (optional)</label><input type="text" id="fWatch" autocomplete="off"></div>
+        <div class="field"><label for="fLink">Link (optional)</label><input type="url" id="fLink" autocomplete="off" placeholder="https://"></div>
+        <div class="field">
+          <label id="fSecLabel">Which section it goes in</label>
+          <div class="tagset" role="radiogroup" aria-labelledby="fSecLabel">
+            <label><input type="radio" name="sec" value="flare"> During a flare-up</label>
+            <label><input type="radio" name="sec" value="scapular" checked> Rear cuff &amp; shoulder blade</label>
+            <label><input type="radio" name="sec" value="serratus"> Shoulder blade control</label>
+            <label><input type="radio" name="sec" value="load"> Cuff under load</label>
+            <label><input type="radio" name="sec" value="overhead"> Overhead strength</label>
+            <label><input type="radio" name="sec" value="mobility"> Mobility</label>
+            <label><input type="radio" name="sec" value="neck"> Neck</label>
+          </div>
+        </div>
+        <div class="field">
+          <label id="fAlsoLabel">Also show it under these filters (optional)</label>
+          <div class="tagset" role="group" aria-labelledby="fAlsoLabel">
+            <label><input type="checkbox" name="also" value="flare"> Flare day</label>
+            <label><input type="checkbox" name="also" value="mobility"> Warm-up</label>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn" type="submit" id="fSave">Add it</button>
+          <button class="btn btn-ghost" type="button" id="fCancel" hidden>Cancel</button>
+        </div>
+        <p class="says" id="addSays" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </details>
+
+  <details class="panel" id="offPanel" hidden>
+    <summary>Hidden exercises <span id="offCount"></span></summary>
+    <div class="pbody"><ul class="offlist" id="offList"></ul></div>
+  </details>
+
+  <details class="panel" id="dataPanel">
+    <summary>My data</summary>
+    <div class="pbody">
+      <p class="sec-note">Everything you log lives in this browser, nowhere else. Clearing site data wipes it, and iOS Safari deletes it by itself after about a week of not opening the page — so add this to your Home Screen, and copy the text below somewhere safe now and then.</p>
+      <label class="vh" for="dataBox">Your data as JSON</label>
+      <textarea id="dataBox" spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off"></textarea>
+      <div class="actions">
+        <button class="btn" type="button" id="btnCopy">Copy</button>
+        <button class="btn btn-ghost" type="button" id="btnDownload">Download</button>
+        <button class="btn btn-ghost" type="button" id="btnImport">Import what's in the box</button>
+        <button class="btn btn-warn" type="button" id="btnWipe">Erase everything</button>
+      </div>
+      <p class="says" id="dataSays" role="status" aria-live="polite"></p>
+    </div>
+  </details>
+</section>
+
+<section class="disclaim" aria-labelledby="h-not">
+  <h2 id="h-not">What this isn't</h2>
+  <p>This is a personal reference assembled from public physiotherapy sources. It isn't a diagnosis, and nobody has examined this shoulder. Pain at the deltoid insertion has several plausible causes that are distinguished by physical examination — the rotator cuff, the tissues under the bony tip of the shoulder, the neck, or the deltoid insertion itself — and the rehab differs between them. An in-person assessment is worth it mainly for that.</p>
+  <p>The rep and set numbers here come from tendon-loading research and ordinary clinical practice. Reasonable clinicians prescribe differently. What actually matters is adding weight steadily over months, staying inside pain you can tolerate.</p>
+  <p>The exercise drawings show body position only. They are not form guides — watch the videos. The one exception is the arm diagram at the top, which is there to point at a specific spot.</p>
+</section>
+
+</div><!-- /.wrap -->
+</main>
+
+<script>
+(function(){
+"use strict";
+var d=document, list=d.getElementById('list');
+
+/* ── storage ─────────────────────────────────────────────────── */
+var KEY='shoulder.v1', storageOK=true;
+var FRESH={v:1,log:{},off:[],custom:[],filter:'all',tests:{tender:null,neck:null},daily:{}};
+
+function read(){
+  try{
+    var raw=localStorage.getItem(KEY);
+    if(!raw) return clone(FRESH);
+    var o=JSON.parse(raw);
+    return normalise(o);
+  }catch(e){ storageOK=false; return clone(FRESH); }
+}
+function write(){
+  try{ localStorage.setItem(KEY,JSON.stringify(state)); }
+  catch(e){ storageOK=false; }
+}
+function clone(o){ return JSON.parse(JSON.stringify(o)); }
+function normalise(o){
+  var s=clone(FRESH);
+  if(!o||typeof o!=='object') return s;
+  if(o.log&&typeof o.log==='object'){
+    for(var k in o.log){ if(Array.isArray(o.log[k])) s.log[k]=o.log[k].filter(function(e){return e&&typeof e.d==='string';}); }
+  }
+  if(Array.isArray(o.off)) s.off=o.off.filter(function(x){return typeof x==='string';});
+  if(Array.isArray(o.custom)) s.custom=o.custom.filter(function(c){return c&&typeof c.name==='string';}).map(function(c){
+    var tg=(Array.isArray(c.tags)&&c.tags.length?c.tags:['scapular']).filter(function(t){return TAGS.indexOf(t)>-1;});
+    if(!tg.length) tg=['scapular'];
+    var sec=TAGS.indexOf(c.sec)>-1?c.sec:tg[0];          /* records saved before the split have no sec */
+    if(tg.indexOf(sec)<0) tg.unshift(sec);
+    var st=Array.isArray(c.steps)?c.steps.map(String).map(function(x){return x.trim();}).filter(Boolean).slice(0,12):[];
+    return {id:String(c.id||('c'+Math.random().toString(36).slice(2,9))),name:String(c.name||''),why:String(c.why||''),
+            steps:st,rat:String(c.rat||''),dose:String(c.dose||''),watch:String(c.watch||''),link:String(c.link||''),
+            sec:sec,tags:tg};
+  });
+  if(typeof o.filter==='string'&&FILTERS.hasOwnProperty(o.filter)) s.filter=o.filter;
+  if(o.daily&&typeof o.daily==='object'){
+    for(var dk in o.daily){
+      var dv=o.daily[dk];
+      if(/^\d{4}-\d{2}-\d{2}$/.test(dk)&&typeof dv==='number'&&dv>=0&&dv<=10) s.daily[dk]=Math.round(dv);
+    }
+  }
+  if(o.tests&&typeof o.tests==='object'){
+    ['tender','neck'].forEach(function(k){ if(o.tests[k]==='yes'||o.tests[k]==='no') s.tests[k]=o.tests[k]; });
+  }
+  return s;
+}
+
+var TAGS=['flare','scapular','serratus','load','overhead','mobility','neck'];
+var FILTERS={all:null,flare:['flare','mobility'],warmup:['mobility'],
+             strength:['scapular','serratus','load','overhead'],neck:['neck']};
+var state=read();
+
+/* ── helpers ─────────────────────────────────────────────────── */
+function esc(s){ return String(s).replace(/[&<>"']/g,function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function safeHref(u){ return /^https?:\/\//i.test(String(u||'')) ? String(u) : ''; }
+function today(){ var n=new Date();
+  return n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-'+String(n.getDate()).padStart(2,'0'); }
+function daysAgo(ds){
+  var p=ds.split('-'); var then=new Date(+p[0],+p[1]-1,+p[2]);
+  var n=new Date(); n=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+  return Math.round((n-then)/86400000);
+}
+function ago(ds){
+  var n=daysAgo(ds);
+  if(n<=0) return 'today'; if(n===1) return 'yesterday';
+  if(n<21) return n+' days ago';
+  if(n<60) return Math.round(n/7)+' weeks ago';
+  return Math.round(n/30)+' months ago';
+}
+function entries(id){ return (state.log[id]||[]).slice().sort(function(a,b){ return a.d<b.d?1:a.d>b.d?-1:0; }); }
+function cards(){ return Array.prototype.slice.call(list.querySelectorAll('.card')); }
+function byId(id){ return list.querySelector('.card[data-id="'+CSS.escape(id)+'"]'); }
+function customById(id){ for(var i=0;i<state.custom.length;i++) if(state.custom[i].id===id) return state.custom[i]; return null; }
+
+/* ── custom exercise cards ───────────────────────────────────── */
+var GENERIC='<svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+
+  '<circle class="bod" cx="60" cy="22" r="7"/><path class="bod" d="M60 29v29M60 58l-9 24M60 58l10 24M60 36L44 48M60 36l16 12"/>'+
+  '<path class="arc" d="M86 36a26 26 0 0 1 0 22"/><path class="head" d="M83 54l4 10 6-8z"/></svg>';
+var CHEV='<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>';
+
+function renderCustom(){
+  Array.prototype.slice.call(list.querySelectorAll('.card[data-custom="1"]')).forEach(function(n){ n.remove(); });
+  state.custom.forEach(function(c){
+    var slot=list.querySelector('.sec[data-slot="'+c.sec+'"]')||list.querySelector('.sec[data-slot="scapular"]');
+    if(!slot) return;
+    var el=d.createElement('details');
+    el.className='card'; el.dataset.id=c.id; el.dataset.tags=c.tags.join(' '); el.dataset.custom='1'; el.dataset.name=c.name;
+    var href=safeHref(c.link);
+    el.innerHTML=
+      '<summary><span class="fig">'+GENERIC+'</span><span class="sum">'+
+        '<h3 class="name">'+esc(c.name)+'<span class="custom-mark" aria-hidden="true">mine</span><span class="vh"> (one of yours)</span></h3>'+
+        (c.why?'<span class="why">'+esc(c.why)+'</span>':'')+
+        '<span class="status" data-role="status"></span></span>'+CHEV+'</summary>'+
+      '<div class="body">'+
+        (href?'<div class="vidwrap"><a class="vidlink" href="'+esc(href)+'" target="_blank" rel="noopener noreferrer">'+PLAY+'Open the link</a></div>':'')+
+        (c.steps.length?'<div class="howto"><h4 class="blk">How to do it</h4><ol>'+c.steps.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ol></div>':'')+
+        (c.dose?'<dl class="dose"><dt>Dose</dt><dd class="prose">'+esc(c.dose)+'</dd></dl>':'')+
+        (c.watch?'<p class="watch"><span class="lbl">Watch for</span>'+esc(c.watch)+'</p>':'')+
+        '<div data-role="log"></div>'+
+        (c.rat?'<div class="whyblk"><h4 class="blk">Why it\'s here</h4><p>'+esc(c.rat)+'</p></div>':'')+
+        '<div class="cardtools" data-role="tools"></div>'+
+      '</div>';
+    slot.appendChild(el);
+  });
+}
+
+/* ── per-card tracking UI ────────────────────────────────────── */
+function paintCard(card){
+  var id=card.dataset.id, es=entries(id), last=es[0];
+  var done=!!last&&last.d===today();
+  card.dataset.done=done?'1':'0';
+  card.dataset.off=state.off.indexOf(id)>-1?'1':'0';
+
+  var st=card.querySelector('[data-role="status"]');
+  if(st){
+    if(state.off.indexOf(id)>-1) st.innerHTML='<span>hidden</span>';
+    else if(done) st.innerHTML='<span class="tick">✓ done today</span>'+(last.w?' · '+esc(last.w):'');
+    else if(last) st.innerHTML='last '+esc(ago(last.d))+(last.w?' · '+esc(last.w):'');
+    else st.innerHTML='';
+  }
+
+  var log=card.querySelector('[data-role="log"]');
+  if(log){
+    log.innerHTML=
+      '<div class="logbox"><h4>Log it</h4>'+
+      '<div class="logrow">'+
+        '<label class="vh" for="in-'+esc(id)+'">What you did</label>'+
+        '<input id="in-'+esc(id)+'" type="text" autocomplete="off" placeholder="3 × 10 @ 6 kg" value="'+esc(last&&last.w?last.w:'')+'">'+
+        '<button class="btn" type="button" data-act="log">'+(done?'Log again':'Log')+'</button>'+
+      '</div>'+
+      '<p class="loghint">Saves under today\'s date. Pre-filled with last time — change a number, or just tap.</p>'+
+      (es.length?'<details class="hist"><summary>History ('+es.length+')</summary><ul>'+es.map(function(e,i){
+        return '<li><span class="d">'+esc(e.d)+'</span><span class="w">'+esc(e.w||'done')+'</span>'+
+               '<button class="x" type="button" data-act="rm" data-i="'+i+'" aria-label="Delete the entry from '+esc(e.d)+'">×</button></li>';
+      }).join('')+'</ul></details>':'')+
+      '</div>';
+  }
+
+  var tools=card.querySelector('[data-role="tools"]');
+  if(tools){
+    var hid=state.off.indexOf(id)>-1, mine=card.dataset.custom==='1';
+    tools.innerHTML=
+      (hid?'<button class="btn btn-ghost" type="button" data-act="show">Bring it back</button>'
+          :'<button class="btn btn-ghost" type="button" data-act="hide">Hide this one</button>')+
+      (mine?'<button class="btn btn-ghost" type="button" data-act="edit">Edit</button>'+
+            '<button class="btn btn-warn" type="button" data-act="del">Delete</button>':'');
+  }
+}
+function paintAll(){ cards().forEach(paintCard); paintTriage(); paintCheck(); applyFilter(); paintOffList(); syncData(); }
+
+/* ── the two self-tests, wired to what the page shows ────────────── */
+var triage=d.getElementById('triage'), triSum=d.getElementById('triSum'),
+    verdict=d.getElementById('verdict'), neckNote=d.getElementById('neckNote');
+var WORDS={tender:{yes:'sharply tender',no:'vague ache only',null:'tender point untested'},
+           neck:{yes:'neck involved',no:'neck not involved',null:'neck untested'}};
+var VERDICT={
+  yes:'Sharply tender to pressure, which fits deltoid insertional tendinopathy — an irritated tendon where the deltoid attaches to the bone. The loading work below targets it directly.',
+  no:'Only a vague ache, which points to referred pain rather than the insertion itself. The program below still applies, but getting examined matters more here, because the tissue causing this may not be the one that hurts.'};
+var NECKNOTE={
+  yes:'Your neck self-test reproduced the arm pain, so this is part of your program.',
+  no:"Your neck self-test didn't reproduce the arm pain, so this is probably not your problem. It stays here on the Neck filter in case that changes.",
+  null:'Conditional. Take the neck self-test at the top to find out whether this applies to you.'};
+
+function paintTriage(){
+  var t=state.tests;
+  Array.prototype.slice.call(triage.querySelectorAll('.test')).forEach(function(block){
+    var key=block.dataset.test;
+    Array.prototype.slice.call(block.querySelectorAll('[data-ans]')).forEach(function(b){
+      b.setAttribute('aria-pressed', t[key]===b.dataset.ans?'true':'false');
+    });
+  });
+  if(t.tender===null&&t.neck===null) triSum.textContent='Two self-tests and the red flags';
+  else triSum.textContent=WORDS.tender[t.tender]+' · '+WORDS.neck[t.neck]+' · red flags';
+
+  if(t.tender){ verdict.textContent=VERDICT[t.tender]; verdict.hidden=false; }
+  else verdict.hidden=true;
+
+  list.classList.toggle('neck-off', t.neck==='no');
+  if(neckNote) neckNote.textContent=NECKNOTE[t.neck];
+  var neckChip=d.querySelector('.chip[data-filter="neck"]');
+  if(neckChip){ if(t.neck==='yes') neckChip.dataset.flag='1'; else delete neckChip.dataset.flag; }
+}
+triage.addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-ans]'); if(!b) return;
+  var key=b.closest('.test').dataset.test;
+  state.tests[key]= state.tests[key]===b.dataset.ans ? null : b.dataset.ans;
+  write(); paintTriage(); applyFilter();
+});
+
+/* ── filtering ───────────────────────────────────────────────── */
+function shownCards(){
+  var showOff=list.classList.contains('show-off'), tags=FILTERS[state.filter];
+  var neckOff=state.tests.neck==='no'&&state.filter!=='neck';
+  return cards().filter(function(c){
+    if(c.dataset.off==='1') return showOff;
+    if(neckOff&&c.closest('.sec[data-sec="neck"]')) return false;
+    if(!tags) return true;
+    var t=(c.dataset.tags||'').split(/\s+/);
+    return tags.some(function(x){ return t.indexOf(x)>-1; });
+  });
+}
+function applyFilter(){
+  ['all','flare','warmup','strength','neck'].forEach(function(f){ list.classList.remove('f-'+f); });
+  list.classList.add('f-'+state.filter);
+  Array.prototype.slice.call(d.querySelectorAll('.chip')).forEach(function(b){
+    b.setAttribute('aria-pressed', b.dataset.filter===state.filter?'true':'false');
+  });
+  var vis=shownCards(), done=vis.filter(function(c){ return c.dataset.done==='1'; }).length;
+  list.classList.toggle('is-empty', vis.length===0);
+  var txt=vis.length+(vis.length===1?' exercise':' exercises');
+  if(done) txt+=' · <span class="done">'+done+' done today</span>';
+  d.getElementById('count').innerHTML=txt;
+  if(typeof paintCheck==='function') paintCheck();   /* the flare shortcut hides once you are on that filter */
+}
+
+/* ── card actions ────────────────────────────────────────────── */
+list.addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-act]'); if(!b||!list.contains(b)) return;
+  var card=b.closest('.card'); if(!card) return;
+  var id=card.dataset.id, act=b.dataset.act;
+
+  if(act==='log'){
+    var input=card.querySelector('.logrow input');
+    var w=(input&&input.value||'').trim().slice(0,80);
+    (state.log[id]=state.log[id]||[]).push({d:today(),w:w});
+    write(); paintCard(card); applyFilter(); syncData();
+    var again=card.querySelector('[data-act="log"]'); if(again) again.focus();
+  }
+  else if(act==='rm'){
+    var es=entries(id), gone=es[+b.dataset.i];
+    state.log[id]=(state.log[id]||[]).filter(function(e){ return e!==gone; });
+    if(!state.log[id].length) delete state.log[id];
+    write(); paintCard(card); applyFilter(); syncData();
+  }
+  else if(act==='hide'){
+    if(state.off.indexOf(id)<0) state.off.push(id);
+    card.open=false; write(); paintAll();
+  }
+  else if(act==='show'){
+    state.off=state.off.filter(function(x){ return x!==id; });
+    write(); paintAll();
+  }
+  else if(act==='edit'){ startEdit(id); }
+  else if(act==='del'){
+    var c=customById(id);
+    if(c&&window.confirm('Delete "'+c.name+'" and its log? This cannot be undone.')){
+      state.custom=state.custom.filter(function(x){ return x.id!==id; });
+      delete state.log[id];
+      state.off=state.off.filter(function(x){ return x!==id; });
+      write(); renderCustom(); embedAll(); paintAll();
+    }
+  }
+});
+list.addEventListener('keydown',function(ev){
+  if(ev.key!=='Enter') return;
+  var i=ev.target.closest('.logrow input'); if(!i) return;
+  ev.preventDefault();
+  var btn=i.closest('.logrow').querySelector('[data-act="log"]'); if(btn) btn.click();
+});
+
+/* ── hidden list ─────────────────────────────────────────────── */
+var offPanel=d.getElementById('offPanel'), offList=d.getElementById('offList'), offCount=d.getElementById('offCount');
+function paintOffList(){
+  var ids=state.off.filter(function(id){ return byId(id); });
+  offPanel.hidden=ids.length===0;
+  if(!ids.length){ list.classList.remove('show-off'); offPanel.open=false; offList.innerHTML=''; return; }
+  offCount.textContent='('+ids.length+')';
+  offList.innerHTML=ids.map(function(id){
+    var c=byId(id), n=c.querySelector('.name');
+    var label=c.dataset.name||(n?n.textContent:id);
+    return '<li><span class="n">'+esc(label)+'</span>'+
+           '<button class="btn btn-ghost" type="button" data-restore="'+esc(id)+'">Bring it back</button></li>';
+  }).join('');
+}
+offList.addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-restore]'); if(!b) return;
+  state.off=state.off.filter(function(x){ return x!==b.dataset.restore; });
+  write(); paintAll();
+});
+offPanel.addEventListener('toggle',function(){ list.classList.toggle('show-off',offPanel.open); applyFilter(); });
+
+/* ── daily check-in, taken before the session ───────────────────── */
+var segs=Array.prototype.slice.call(d.querySelectorAll('.seg')),
+    checkSaid=d.getElementById('checkSaid'), trend=d.getElementById('trend'),
+    trendBars=d.getElementById('trendBars'), trendNote=d.getElementById('trendNote');
+
+function advice(v){
+  if(v===0) return 'Nothing there today. Good day to add weight.';
+  if(v<=2)  return 'Quiet. Train normally.';
+  if(v<=4)  return 'Sore but workable. Train normally, and check it has settled by tomorrow.';
+  if(v<=6)  return 'This is a flare. Keep the load light today.';
+  if(v<=8)  return 'Bad day. Isometric holds only.';
+  return 'Stop. This needs a clinician, not a session.';
+}
+function dayKey(dt){
+  return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');
+}
+/* twelve rolling 7-day buckets, newest on the right. A weekly mean is the honest
+   unit here: day-to-day readings are noise, and the program runs three to four months. */
+function weekBuckets(){
+  var now=new Date(), base=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  var weeks=[], i, j;
+  for(i=11;i>=0;i--){
+    var vals=[];
+    for(j=0;j<7;j++){
+      var dt=new Date(base.getFullYear(),base.getMonth(),base.getDate()-(i*7+j)), k=dayKey(dt);
+      if(state.daily.hasOwnProperty(k)) vals.push(state.daily[k]);
+    }
+    weeks.push(vals.length?{avg:vals.reduce(function(a,b){return a+b;},0)/vals.length,n:vals.length}:null);
+  }
+  return weeks;
+}
+function trainedOn(k){
+  for(var id in state.log){
+    if(state.log[id].some(function(e){ return e.d===k; })) return true;
+  }
+  return false;
+}
+/* the pre-session reading doubles as the 24-hour verdict on the last session,
+   which is the comparison the loading rule at the top of this page is made of */
+function paint24(v){
+  var box=d.getElementById('check24');
+  var n=new Date(), yk=dayKey(new Date(n.getFullYear(),n.getMonth(),n.getDate()-1));
+  if(v===null||!trainedOn(yk)||!state.daily.hasOwnProperty(yk)){ box.hidden=true; return; }
+  var yv=state.daily[yk];
+  if(v-yv>=2){
+    box.dataset.verdict='high';
+    box.innerHTML='You trained yesterday and you are up from <b>'+yv+'</b> to <b>'+v+'</b> this morning. That load was too high — go lighter today.';
+    box.hidden=false;
+  } else if(v<=yv){
+    box.dataset.verdict='ok';
+    box.innerHTML='You trained yesterday and you are no worse this morning (<b>'+yv+'</b> to <b>'+v+'</b>). That load was right.';
+    box.hidden=false;
+  } else { box.hidden=true; }   /* one point up is inside the noise */
+}
+function paintCheck(){
+  var v=state.daily.hasOwnProperty(today())?state.daily[today()]:null;
+  segs.forEach(function(b){ b.setAttribute('aria-pressed', v!==null&&+b.dataset.level===v?'true':'false'); });
+  if(v===null){
+    checkSaid.innerHTML='<em>Not logged yet today.</em>';
+  } else {
+    checkSaid.innerHTML='<b>'+v+' out of 10.</b> '+esc(advice(v))+
+      (v>=5&&state.filter!=='flare'?'<button class="linkish go-flare" type="button" data-goflare>Show flare-day exercises</button>':'')+
+      '<button class="linkish" type="button" data-unlog>Clear</button>';
+  }
+  paint24(v);
+  paintTrend();
+}
+function paintTrend(){
+  var weeks=weekBuckets(), filled=weeks.filter(Boolean);
+  var total=filled.reduce(function(a,w){ return a+w.n; },0);
+  trend.hidden=total<2;
+  if(trend.hidden) return;
+  trendBars.innerHTML=weeks.map(function(w){
+    if(!w) return '<span class="nil"></span>';
+    return '<span data-band="'+(w.avg<5?'lo':'hi')+'" style="--h:'+Math.max(6,w.avg*10)+'%"></span>';
+  }).join('');
+  var thisWeek=weeks[11], earliest=filled[0];
+  var bits=['Weekly average'];
+  bits.push(thisWeek?'this week '+thisWeek.avg.toFixed(1):'nothing logged this week');
+  if(filled.length>1&&thisWeek){
+    var diff=earliest.avg-thisWeek.avg;
+    bits.push(Math.abs(diff)<0.3 ? 'level with '+earliest.avg.toFixed(1)+' when you started'
+            : (diff>0?'down from ':'up from ')+earliest.avg.toFixed(1));
+  }
+  bits.push(total+(total===1?' day logged':' days logged'));
+  trendNote.textContent=bits.join(' · ');
+}
+d.querySelector('.scale').addEventListener('click',function(ev){
+  var b=ev.target.closest('.seg'); if(!b) return;
+  var n=+b.dataset.level, cur=state.daily.hasOwnProperty(today())?state.daily[today()]:null;
+  if(cur===n) delete state.daily[today()]; else state.daily[today()]=n;
+  write(); paintCheck(); syncData();
+});
+checkSaid.addEventListener('click',function(ev){
+  if(ev.target.closest('[data-unlog]')){ delete state.daily[today()]; write(); paintCheck(); syncData(); return; }
+  if(ev.target.closest('[data-goflare]')){
+    state.filter='flare'; write(); applyFilter(); paintCheck();
+    d.querySelector('.filters').scrollIntoView({block:'start'});
+  }
+});
+
+/* ── filter chips ────────────────────────────────────────────── */
+Array.prototype.slice.call(d.querySelectorAll('.chip')).forEach(function(b){
+  b.addEventListener('click',function(){ state.filter=b.dataset.filter; write(); applyFilter(); });
+});
+
+/* ── video embeds (the link is the default; this upgrades it) ── */
+var PLAY='<svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>', CHEVI='<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>';
+function embedAll(){
+  Array.prototype.slice.call(d.querySelectorAll('.vidwrap[data-yt],.vidwrap[data-list]')).forEach(function(w){
+    if(w.dataset.done==='1') return;
+    w.dataset.done='1';
+    var pl=w.dataset.list;
+    var src=pl?'https://www.youtube-nocookie.com/embed/videoseries?list='+encodeURIComponent(pl)
+              :'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(w.dataset.yt);
+    var box=d.createElement('details'); box.className='vidbox';
+    box.innerHTML='<summary>'+PLAY+(pl?'Watch the playlist':'Watch the demo')+CHEVI+'</summary><div class="vid"></div>';
+    box.addEventListener('toggle',function(){
+      var slot=box.querySelector('.vid');
+      if(!box.open||slot.firstChild) return;
+      var f=d.createElement('iframe');
+      f.src=src; f.title=w.dataset.title||'Exercise demonstration'; f.loading='lazy';
+      f.allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+      f.allowFullscreen=true;
+      slot.appendChild(f);
+    });
+    w.innerHTML=''; w.appendChild(box);
+  });
+}
+
+/* ── add / edit an exercise ──────────────────────────────────── */
+var form=d.getElementById('addForm'), addPanel=d.getElementById('addPanel'),
+    says=d.getElementById('addSays'), fCancel=d.getElementById('fCancel'), fSave=d.getElementById('fSave');
+function pick(){
+  var secEl=form.querySelector('input[name=sec]:checked');
+  var sec=secEl?secEl.value:'scapular';
+  var tags=[sec];
+  Array.prototype.slice.call(form.querySelectorAll('input[name=also]:checked')).forEach(function(i){
+    if(tags.indexOf(i.value)<0) tags.push(i.value);
+  });
+  return {sec:sec,tags:tags};
+}
+function splitSteps(v){
+  return v.split('\n').map(function(x){return x.trim();}).filter(Boolean).slice(0,12).map(function(x){return x.slice(0,220);});
+}
+function resetForm(){
+  form.reset(); d.getElementById('fEdit').value='';
+  Array.prototype.slice.call(form.querySelectorAll('input[name=sec]')).forEach(function(i){ i.checked=i.value==='scapular'; });
+  Array.prototype.slice.call(form.querySelectorAll('input[name=also]')).forEach(function(i){ i.checked=false; });
+  fSave.textContent='Add it'; fCancel.hidden=true; says.textContent=''; says.removeAttribute('data-bad');
+}
+function startEdit(id){
+  var c=customById(id); if(!c) return;
+  d.getElementById('fEdit').value=id;
+  d.getElementById('fName').value=c.name; d.getElementById('fWhy').value=c.why;
+  d.getElementById('fDose').value=c.dose; d.getElementById('fRat').value=c.rat;
+  d.getElementById('fSteps').value=c.steps.join('\n');
+  d.getElementById('fWatch').value=c.watch; d.getElementById('fLink').value=c.link;
+  Array.prototype.slice.call(form.querySelectorAll('input[name=sec]')).forEach(function(i){ i.checked=i.value===c.sec; });
+  Array.prototype.slice.call(form.querySelectorAll('input[name=also]')).forEach(function(i){ i.checked=i.value!==c.sec&&c.tags.indexOf(i.value)>-1; });
+  fSave.textContent='Save changes'; fCancel.hidden=false;
+  addPanel.open=true; addPanel.scrollIntoView({block:'start'}); d.getElementById('fName').focus();
+}
+fCancel.addEventListener('click',resetForm);
+form.addEventListener('submit',function(ev){
+  ev.preventDefault();
+  var name=d.getElementById('fName').value.trim();
+  if(!name){ says.textContent='It needs a name.'; says.setAttribute('data-bad','1'); d.getElementById('fName').focus(); return; }
+  var chosen=pick();
+  var link=d.getElementById('fLink').value.trim();
+  if(link&&!safeHref(link)){ says.textContent='The link needs to start with http:// or https://'; says.setAttribute('data-bad','1'); return; }
+  var editing=d.getElementById('fEdit').value, rec=editing?customById(editing):null;
+  if(!rec){ rec={id:'c'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}; state.custom.push(rec); }
+  rec.name=name.slice(0,90);
+  rec.why=d.getElementById('fWhy').value.trim().slice(0,140);
+  rec.dose=d.getElementById('fDose').value.trim().slice(0,140);
+  rec.steps=splitSteps(d.getElementById('fSteps').value);
+  rec.rat=d.getElementById('fRat').value.trim().slice(0,900);
+  rec.watch=d.getElementById('fWatch').value.trim().slice(0,240);
+  rec.link=link; rec.sec=chosen.sec; rec.tags=chosen.tags;
+  write(); renderCustom(); embedAll(); paintAll();
+  var msg=editing?'Saved.':'Added to '+(list.querySelector('.sec[data-slot="'+chosen.sec+'"] h2')||{textContent:'the page'}).textContent+'.';
+  resetForm(); says.textContent=msg;
+  var made=byId(rec.id); if(made) made.scrollIntoView({block:'center'});
+});
+
+/* ── my data ─────────────────────────────────────────────────── */
+var box=d.getElementById('dataBox'), dsays=d.getElementById('dataSays');
+function tell(m,bad){ dsays.textContent=m; if(bad) dsays.setAttribute('data-bad','1'); else dsays.removeAttribute('data-bad'); }
+function syncData(){ if(d.activeElement!==box) box.value=JSON.stringify(state,null,1); }
+d.getElementById('btnCopy').addEventListener('click',function(){
+  syncData();
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(box.value).then(function(){ tell('Copied.'); },function(){ box.select(); tell('Select-all and copy it by hand.',true); });
+  } else { box.select(); tell('Select-all and copy it by hand.',true); }
+});
+d.getElementById('btnDownload').addEventListener('click',function(){
+  syncData();
+  try{
+    var blob=new Blob([box.value],{type:'application/json'}), u=URL.createObjectURL(blob), a=d.createElement('a');
+    a.href=u; a.download='shoulder-'+today()+'.json'; d.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(u); },1000); tell('Downloaded.');
+  }catch(e){ tell('Download failed — copy the text instead.',true); }
+});
+d.getElementById('btnImport').addEventListener('click',function(){
+  var parsed;
+  try{ parsed=JSON.parse(box.value); }catch(e){ tell("That isn't valid JSON.",true); return; }
+  var n=normalise(parsed), count=0;
+  for(var k in n.log) count+=n.log[k].length;
+  if(!window.confirm('Replace what is on this device with '+count+' logged entries and '+n.custom.length+' of your own exercises?')) return;
+  state=n; write(); renderCustom(); embedAll(); paintAll(); tell('Imported.');
+});
+d.getElementById('btnWipe').addEventListener('click',function(){
+  if(!window.confirm('Erase every logged entry, every exercise you added, and start over?')) return;
+  state=clone(FRESH);
+  try{ localStorage.removeItem(KEY); }catch(e){}
+  renderCustom(); embedAll(); paintAll(); tell('Erased.');
+});
+
+/* ── go ──────────────────────────────────────────────────────── */
+renderCustom();
+embedAll();
+paintAll();
+if(!storageOK){
+  var w=d.createElement('p'); w.className='says'; w.setAttribute('data-bad','1');
+  w.textContent='This browser is blocking local storage, so nothing you log here will survive a reload. The exercises still work.';
+  d.getElementById('dataPanel').querySelector('.pbody').prepend(w);
+}
+})();
+</script>
+</body>
+</html>
