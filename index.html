@@ -222,25 +222,38 @@ main{padding-bottom:3rem}
 /* ── exercise card ──────────────────────────────────────────────── */
 .card{
   background:var(--surface); border:1px solid var(--haze); border-radius:4px;
-  margin:0 0 .6rem; overflow:hidden; scroll-margin-top:7.5rem;
+  margin:0 0 .5rem; scroll-margin-top:7.5rem;
 }
 .card[open]{border-color:var(--kelp)}
 .card > summary{
-  display:flex; gap:.85rem; align-items:flex-start;
-  padding:.85rem .9rem; cursor:pointer; list-style:none;
-  min-height:44px;
+  display:flex; gap:.7rem; align-items:flex-start;
+  padding:.6rem .8rem; cursor:pointer; list-style:none;
+  min-height:44px; position:sticky; top:var(--bar,7rem); z-index:4;
+  background:var(--surface); border-radius:3px;
 }
 .card > summary::-webkit-details-marker{display:none}
 .card > summary::marker{content:""}
 .card > summary:focus-visible{outline:2.5px solid var(--kelp);outline-offset:-2px}
-.fig{flex:none;width:64px;color:var(--ink)}
+.fig{flex:none;width:46px;color:var(--ink)}
 .fig svg{display:block;width:100%;height:auto}
 .sum{flex:1 1 auto;min-width:0}
-.sum .name{display:block;margin:0;font-family:var(--sans);font-weight:600;font-size:1.125rem;line-height:1.25;letter-spacing:-.005em}
-.sum .why{display:block;color:var(--muted);font-size:.9375rem;line-height:1.4;margin-top:.15rem}
-.chev{flex:none;width:18px;height:18px;margin-top:.3rem;color:var(--muted);transition:transform .2s ease}
+.sum .name{display:block;margin:0;font-family:var(--sans);font-weight:600;font-size:1rem;line-height:1.3;letter-spacing:-.005em}
+.sum .why{display:block;color:var(--muted);font-size:.8125rem;line-height:1.45;margin-top:.1rem}
+.chev{flex:none;width:16px;height:16px;margin-top:.25rem; color:var(--muted);transition:transform .2s ease}
 .card[open] .chev{transform:rotate(180deg)}
-.card .body{padding:0 .9rem 1rem;border-top:var(--line);margin-top:.15rem;padding-top:.9rem}
+.card .body{padding:0 .8rem .3rem;border-top:var(--line);margin-top:.15rem;padding-top:.7rem}
+.sect{border-top:1px solid var(--haze)}
+.sect > summary{
+  cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;
+  min-height:44px;padding:.5rem 0;
+  font-family:var(--sans);font-weight:600;font-size:.8125rem;line-height:1.5;color:var(--muted);
+}
+.sect > summary::-webkit-details-marker{display:none}
+.sect > summary::marker{content:""}
+.sect > summary .chev{width:15px;height:15px;margin:.1rem 0 0 auto;color:var(--muted)}
+.sect[open] > summary .chev{transform:rotate(180deg)}
+.sect-body{padding:0 0 .85rem}
+.sect-body > *:first-child{margin-top:0}
 .card .body > *:first-child{margin-top:0}
 
 .blk{font-family:var(--sans);font-weight:600;font-size:.8125rem;line-height:1.5;margin:0 0 .4rem;color:var(--muted)}
@@ -249,15 +262,15 @@ main{padding-bottom:3rem}
 .howto li:last-child{margin-bottom:0}
 .howto li::marker{font-family:var(--sans);font-weight:600;color:var(--kelp)}
 .howto b{font-family:var(--sans);font-weight:600;font-size:.9375rem}
-.whyblk{margin:1.4rem 0 0}
+.whyblk{margin:0}
 .whyblk p:last-child{margin-bottom:0}
-.dose{margin:1.1rem 0 0;padding:.75rem .85rem;background:var(--kelp-wash);border-radius:3px;display:grid;grid-template-columns:auto 1fr;gap:.3rem .85rem}
+.dose{margin:0;padding:.75rem .85rem;background:var(--kelp-wash);border-radius:3px;display:grid;grid-template-columns:auto 1fr;gap:.3rem .85rem}
 .dose dt{font-family:var(--sans);font-weight:600;font-size:.8125rem;line-height:1.5;color:var(--muted);white-space:nowrap;padding-top:.1em}
 .dose dd{margin:0;font-family:var(--sans);font-weight:600;font-size:.9375rem;line-height:1.4;font-variant-numeric:tabular-nums;color:var(--kelp)}
 .dose dd.prose{font-family:var(--serif);font-weight:400;color:var(--ink);font-size:1rem;line-height:1.5}
 @media (max-width:22rem){ .dose{grid-template-columns:1fr;gap:.1rem} .dose dt{margin-top:.4rem} }
 
-.watch{margin:1.1rem 0 0;font-size:1rem;line-height:1.55}
+.watch{margin:0;font-size:1rem;line-height:1.55}
 .watch .lbl{font-family:var(--sans);font-weight:600;font-size:.8125rem;color:var(--muted);display:block}
 .steps{margin:1.1rem 0 0;padding-left:1.35rem;font-size:1rem;line-height:1.55}
 .steps li{margin-bottom:.25rem}
@@ -266,7 +279,7 @@ main{padding-bottom:3rem}
 .vid{aspect-ratio:16/9;width:100%;background:var(--kelp-wash);overflow:hidden;border-top:var(--line)}
 .vid iframe{display:block;width:100%;height:100%;border:0}
 .pico{flex:none;width:14px;height:14px}
-.vidbox{border:1px solid var(--haze);border-radius:3px;overflow:hidden}
+.vidbox{margin:0 0 .45rem;border:1px solid var(--haze);border-radius:3px;overflow:hidden}
 .photobox{border:1px solid var(--haze);border-radius:3px;overflow:hidden;margin:.45rem 0 0}
 .photobox > summary{
   cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;
@@ -304,18 +317,18 @@ main{padding-bottom:3rem}
 }
 .vidlink:hover{border-color:var(--kelp)}
 .vidlink::after{content:"↗";margin-left:auto;opacity:.75}
-.howto{margin:1.2rem 0 0}
-.src{margin:1rem 0 0;font-size:.9375rem;line-height:1.5;color:var(--muted)}
+.howto{margin:0}
+.src{margin:0;font-size:.9375rem;line-height:1.5;color:var(--muted)}
 .src a{display:inline-block;padding:.15rem 0}
 
 /* ── tracking ───────────────────────────────────────────────────── */
-.status{display:none;margin-top:.3rem;font-family:var(--sans);font-weight:600;font-size:.8125rem;line-height:1.4;font-variant-numeric:tabular-nums;color:var(--muted)}
+.status{display:none;margin-top:.2rem;font-family:var(--sans);font-weight:600;font-size:.75rem;line-height:1.4;font-variant-numeric:tabular-nums;color:var(--muted)}
 .js .status{display:block}
 .status .tick{color:var(--kelp)}
 .status:empty{display:none}
 .card[data-done="1"]{border-left:3px solid var(--kelp)}
 
-.logbox{margin:1.1rem 0 0;padding:.8rem .85rem;border:1px dashed var(--haze);border-radius:3px}
+.logbox{margin:0;padding:.8rem .85rem;border:1px dashed var(--haze);border-radius:3px}
 .logbox h4{font-family:var(--sans);font-weight:600;font-size:.8125rem;line-height:1.5;margin:0 0 .5rem;color:var(--muted)}
 .logrow{display:flex;gap:.45rem;align-items:stretch}
 .logrow input{
@@ -560,27 +573,49 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="xZKlQlkAeZA" data-title="Isometric external rotation"><a class="vidlink" href="https://www.youtube.com/watch?v=xZKlQlkAeZA" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Stand side-on to a doorframe with the sore arm nearest it.</li>
           <li>Bend that elbow to 90° and tuck it against your ribs, palm facing in, back of the wrist touching the frame.</li>
           <li>Press the back of the wrist outward into the frame at about 70% effort. Nothing moves.</li>
           <li>Hold for the count, relax fully, repeat.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Effort</dt><dd>About 70% of maximum</dd>
         <dt>Hold</dt><dd>30–45 seconds × 4–5 reps</dd>
         <dt>Frequency</dt><dd>2–3 times a day</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>The elbow drifting away from your side, or shrugging. Nothing should move.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">The elbow drifting away from your side, or shrugging. Nothing should move.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>Isometric holds — push hard, nothing moves — produce short-term pain relief in tendinopathy (an overloaded tendon that has become irritable) without the tissue stress of moving through range, which means you can keep loading the cuff rather than resting it — and rest reliably makes tendinopathy worse over the medium term. The evidence for the analgesic effect is mixed across studies, but it is low-risk and costs nothing to try.</p>
-      </div>
-      <p class="src">Source: <a href="https://library.theprehabguys.com/vimeo-video/shoulder-external-rotation-isometrics/" target="_blank" rel="noopener noreferrer">Prehab Guys</a> · <a href="https://www.rehabhero.ca/exercise/wall-isometric-shoulder-external-rotation" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://library.theprehabguys.com/vimeo-video/shoulder-external-rotation-isometrics/" target="_blank" rel="noopener noreferrer">Prehab Guys</a> · <a href="https://www.rehabhero.ca/exercise/wall-isometric-shoulder-external-rotation" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -616,29 +651,51 @@ main{padding-bottom:3rem}
         </div>
         <p class="shots-credit">Public domain photographs, via free-exercise-db.</p>
       </details>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Lie on your side with the sore arm on top.</li>
           <li>Bend that elbow to 90° and pin it against your ribs, forearm resting across your belly, light weight in the hand.</li>
           <li>Draw the shoulder blade back first, then rotate the forearm up toward the ceiling.</li>
           <li>Lower slowly. The elbow stays at 90° and glued to your side throughout.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Start</dt><dd>3 × 10–15 light</dd>
         <dt>Progress to</dt><dd>3–4 × 6–10</dd>
         <dt>Tempo</dt><dd>3 seconds up, 3 seconds down</dd>
         <dt>Frequency</dt><dd>2–3 sessions a week</dd>
         <dt>Note</dt><dd class="prose">Heavy slow resistance. The tempo matters more than the rep count.</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>Straightening the elbow as you rotate. Keep it at 90° throughout.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">Straightening the elbow as you rotate. Keep it at 90° throughout.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>Climbing and surf paddling are overwhelmingly internal-rotation dominant. This loads infraspinatus and teres minor — the main external rotators — in a position where the shoulder blade can't do the work instead. Starting the motion with the shoulder blade pulling back, then the arm, is what separates this from a wrist exercise.</p>
-      </div>
-      <p class="src">Source: <a href="https://library.theprehabguys.com/vimeo-video/side-lying-shoulder-external-rotation-band/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://library.theprehabguys.com/vimeo-video/side-lying-shoulder-external-rotation-band/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -661,28 +718,50 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="I1TYkAl1fzw" data-title="Banded external rotation at 45°"><a class="vidlink" href="https://www.youtube.com/watch?v=I1TYkAl1fzw" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Anchor a light band at about elbow height and stand side-on, holding it in the hand of the sore arm so it pulls across your body.</li>
           <li>Lift that arm out from your side to about 45° — halfway between hanging down and straight out — elbow bent to 90°.</li>
           <li>Holding that arm position, rotate the forearm back and up against the band.</li>
           <li>Return slowly. Only the forearm moves; the upper arm stays put.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Sets &amp; reps</dt><dd>3 × 10–12 per side</dd>
         <dt>Frequency</dt><dd>2–3 times a week</dd>
         <dt>Load</dt><dd>Light band</dd>
         <dt>Note</dt><dd class="prose">These muscles are small and fatigue fast.</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>The torso twisting to help. Keep the body still.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">The torso twisting to help. Keep the body still.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>Working the cuff only with the elbow at your side builds strength in a position climbing never uses. Moving the arm out to 45° starts loading the cuff closer to the abducted, rotated positions where symptoms show up. Add it once the 0° version is comfortable.</p>
-      </div>
-      <p class="src">Source: <a href="https://www.youtube.com/watch?v=I1TYkAl1fzw" target="_blank" rel="noopener noreferrer">Aurora Prime Physiotherapy</a> · <a href="https://www.getwellen.com/exercises/standing-scapular-retraction-with-external-rotation-with-resistance" target="_blank" rel="noopener noreferrer">Wellen</a> · <a href="https://www.orthoinfo.org/recovery/rotator-cuff-and-shoulder-conditioning-program/" target="_blank" rel="noopener noreferrer">OrthoInfo</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://www.youtube.com/watch?v=I1TYkAl1fzw" target="_blank" rel="noopener noreferrer">Aurora Prime Physiotherapy</a> · <a href="https://www.getwellen.com/exercises/standing-scapular-retraction-with-external-rotation-with-resistance" target="_blank" rel="noopener noreferrer">Wellen</a> · <a href="https://www.orthoinfo.org/recovery/rotator-cuff-and-shoulder-conditioning-program/" target="_blank" rel="noopener noreferrer">OrthoInfo</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -705,27 +784,49 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="k_zZ6XB9jds" data-title="Wall slide with lift-off"><a class="vidlink" href="https://www.youtube.com/watch?v=k_zZ6XB9jds" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Face a wall about a forearm's length back. Put both forearms on it, elbows at shoulder height, little-finger edge of each hand against the wall.</li>
           <li>Press into the wall and slide the forearms up, letting the shoulder blades travel up and around.</li>
           <li>At the top, lift both forearms an inch off the wall and hold.</li>
           <li>Put them back and slide down. Keep the ribs down — don't arch your back to get higher.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Sets &amp; reps</dt><dd>2–3 × 8–10 slides</dd>
         <dt>Hold</dt><dd>3–5 seconds each lift-off</dd>
         <dt>Frequency</dt><dd class="prose">Low enough load to do daily.</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>The lower back arching to make up range the shoulder doesn't have.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">The lower back arching to make up range the shoulder doesn't have.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>Trains upward rotation of the shoulder blade — the movement that clears space for the rotator cuff as the arm rises. The lift-off at the top is the part that recruits lower trapezius; without it this is mostly a mobility drill. Pressing into the wall through the pinky side of the hands and the elbows throughout is what keeps serratus engaged.</p>
-      </div>
-      <p class="src">Source: <a href="https://library.theprehabguys.com/vimeo-video/wall-slide/" target="_blank" rel="noopener noreferrer">Prehab Guys — wall slide</a> · <a href="https://library.theprehabguys.com/vimeo-video/wall-slide-lift-off-band/" target="_blank" rel="noopener noreferrer">lift-off variant</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://library.theprehabguys.com/vimeo-video/wall-slide/" target="_blank" rel="noopener noreferrer">Prehab Guys — wall slide</a> · <a href="https://library.theprehabguys.com/vimeo-video/wall-slide-lift-off-band/" target="_blank" rel="noopener noreferrer">lift-off variant</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -748,27 +849,49 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="2bm3VJqWvtQ" data-title="Prone Y raise"><a class="vidlink" href="https://www.youtube.com/watch?v=2bm3VJqWvtQ" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Lie face down with your forehead on a folded towel.</li>
           <li>Reach both arms overhead along the floor, angled about 45° out from your body, thumbs pointing up — a Y shape.</li>
           <li>Slide the shoulder blades down toward your back pockets, then lift the arms a few inches.</li>
           <li>Hold at the top, then lower slowly.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Sets &amp; reps</dt><dd>2–3 × 10–15</dd>
         <dt>Hold</dt><dd>2–3 seconds at the top</dd>
         <dt>Note</dt><dd class="prose">Lower trap is endurance-biased, so higher reps at light load are right here.</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>Shrugging. If you feel it in the upper trapezius, at the top of the shoulder, lift less high.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">Shrugging. If you feel it in the upper trapezius, at the top of the shoulder, lift less high.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>Standing up, gravity pulls in roughly the same direction the lower trapezius does, so the muscle barely has to work. Lying face down turns gravity into resistance: the lower trapezius has to do the lifting, and stronger muscles cannot substitute for it. This is standard in shoulder rehab for exactly that reason.</p>
-      </div>
-      <p class="src">Source: <a href="https://www.youtube.com/watch?v=2bm3VJqWvtQ" target="_blank" rel="noopener noreferrer">Ethos PT</a> · <a href="https://library.theprehabguys.com/vimeo-video/prone-ys/" target="_blank" rel="noopener noreferrer">Prehab Guys — prone Y</a> · <a href="https://library.theprehabguys.com/vimeo-video/prone-lift-off/" target="_blank" rel="noopener noreferrer">prone lift-off</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://www.youtube.com/watch?v=2bm3VJqWvtQ" target="_blank" rel="noopener noreferrer">Ethos PT</a> · <a href="https://library.theprehabguys.com/vimeo-video/prone-ys/" target="_blank" rel="noopener noreferrer">Prehab Guys — prone Y</a> · <a href="https://library.theprehabguys.com/vimeo-video/prone-lift-off/" target="_blank" rel="noopener noreferrer">prone lift-off</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -799,26 +922,48 @@ main{padding-bottom:3rem}
         </div>
         <p class="shots-credit">Public domain photographs, via free-exercise-db.</p>
       </details>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Set a band or cable at about head height. Hold one end in each hand, palms facing each other.</li>
           <li>Step back until there is tension, arms straight out in front of you.</li>
           <li>Pull toward your forehead, driving the elbows out wide and high.</li>
           <li>At the end, rotate your hands back so the knuckles point behind you. Return slowly.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Sets &amp; reps</dt><dd>3 × 12–20</dd>
         <dt>Load</dt><dd>Light to moderate</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>Turning it into a row. The external rotation at the end is the point.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">Turning it into a row. The external rotation at the end is the point.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>Combines pulling the arms out to the sides with rotating them back — close to the exact opposite of the climbing pull pattern. You can do a lot of it without much risk, so it's an easy place to add reps.</p>
-      </div>
-      <p class="src">Source: <a href="https://www.youtube.com/watch?v=CU4Xc2qlLC0" target="_blank" rel="noopener noreferrer">Citizen Athletics</a> · <a href="https://www.rehabhero.ca/exercise/face-pulls" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://www.youtube.com/watch?v=CU4Xc2qlLC0" target="_blank" rel="noopener noreferrer">Citizen Athletics</a> · <a href="https://www.rehabhero.ca/exercise/face-pulls" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -841,17 +986,37 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-list="PLoxfqGRSN_tFiHzQ7j7hCzBr035OAf1l7" data-poster="W-N2Vp_7obs" data-title="Rotator cuff exercises for climbers"><a class="vidlink" href="https://www.youtube.com/playlist?list=PLoxfqGRSN_tFiHzQ7j7hCzBr035OAf1l7" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the playlist</a></div>
-      <dl class="dose">
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>For strength</dt><dd>3–4 × 8</dd>
         <dt>For endurance</dt><dd>3–4 × 20</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>Nothing — this is a video to watch, not an exercise to do.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">Nothing — this is a video to watch, not an exercise to do.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>A progression from easier to harder external rotator work, presented by a physiotherapist who works with climbers. Worth watching once end-to-end before starting, for the programming logic as much as the exercises. The rep guidance is goal-dependent: lower reps and higher resistance if the goal is bouldering strength, higher reps and lower resistance if the goal is multi-pitch endurance.</p>
-      </div>
-      <p class="src">Source: <a href="https://www.hoopersbeta.com/library/top-6-exercises-for-rotator-cuffs-strong-shoulders-pt-1" target="_blank" rel="noopener noreferrer">Hooper's Beta</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://www.hoopersbeta.com/library/top-6-exercises-for-rotator-cuffs-strong-shoulders-pt-1" target="_blank" rel="noopener noreferrer">Hooper's Beta</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -879,27 +1044,49 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="7ISH0zz9XcM" data-title="Push-up plus"><a class="vidlink" href="https://www.youtube.com/watch?v=7ISH0zz9XcM" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Get into a push-up position — on the floor, or hands on a bench or wall if the floor provokes it.</li>
           <li>Lower into the push-up and press back up as normal.</li>
           <li>At the top, with the elbows already straight, keep pushing so the shoulder blades spread apart and your upper back rounds slightly.</li>
           <li>Release and repeat. That last push is the exercise.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Sets &amp; reps</dt><dd>3 × 10–15</dd>
         <dt>Frequency</dt><dd>2–3 times a week</dd>
         <dt>Easier version</dt><dd class="prose">Wall or incline version if the floor version provokes symptoms.</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>Stopping at the top of the push-up. That last push, spreading the shoulder blades apart, is the exercise.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">Stopping at the top of the push-up. That last push, spreading the shoulder blades apart, is the exercise.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>Serratus anterior holds the shoulder blade flat against the ribcage. When it is weak the blade lifts away from the ribs — this is called winging — and the rotator cuff no longer has a steady base to pull against. A push-up is closed-chain — your hands stay planted — so the blade can move freely on the ribcage while bodyweight supplies the resistance. The "plus" at the top is the protraction, pushing the shoulder blades apart, and that is the part that does the work.</p>
-      </div>
-      <p class="src">Source: <a href="https://www.youtube.com/watch?v=7ISH0zz9XcM" target="_blank" rel="noopener noreferrer">Musculoskeletal Physiotherapy</a> · <a href="https://www.rehabhero.ca/exercise/push-up-plus" target="_blank" rel="noopener noreferrer">Rehab Hero</a> · <a href="https://theprehabguys.com/serratus-anterior-exercises/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://www.youtube.com/watch?v=7ISH0zz9XcM" target="_blank" rel="noopener noreferrer">Musculoskeletal Physiotherapy</a> · <a href="https://www.rehabhero.ca/exercise/push-up-plus" target="_blank" rel="noopener noreferrer">Rehab Hero</a> · <a href="https://theprehabguys.com/serratus-anterior-exercises/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -922,26 +1109,48 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="hi0fKb6EaXo" data-title="Bear-position scapular push-up"><a class="vidlink" href="https://www.youtube.com/watch?v=hi0fKb6EaXo" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Start on hands and knees — hands under the shoulders, knees under the hips.</li>
           <li>Tuck your toes and lift the knees an inch or two off the floor. Hold there with a flat back.</li>
           <li>Keeping the elbows straight, let the chest sink slightly so the shoulder blades squeeze together.</li>
           <li>Push the floor away so the blades spread apart again. Slow, and only the blades move.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Sets &amp; reps</dt><dd>3 × 8–12</dd>
         <dt>Tempo</dt><dd class="prose">Slow.</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>The hips rising or the back sagging. The only thing that moves is the shoulder blades.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">The hips rising or the back sagging. The only thing that moves is the shoulder blades.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>Knees hovering, spine neutral, moving only the shoulder blades. Works serratus on its own, without loading the shoulder through its range, which makes it usable even on days when pressing is uncomfortable.</p>
-      </div>
-      <p class="src">Source: <a href="https://www.rehabhero.ca/exercise/bear-crawl-scapular-push-up" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://www.rehabhero.ca/exercise/bear-crawl-scapular-push-up" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -966,26 +1175,48 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="V4h4Cl4VYn0" data-title="Kettlebell plank drag-through"><a class="vidlink" href="https://www.youtube.com/watch?v=V4h4Cl4VYn0" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Get into a push-up position with the hands a little wider than the shoulders and the feet wide apart.</li>
           <li>Put a kettlebell on the floor just outside one hand.</li>
           <li>Reach under your chest with the opposite hand and drag the bell across to the other side.</li>
           <li>Put the hand back down, reset, and drag it back. The hips stay level — nothing twists.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Sets &amp; reps</dt><dd>3 × 6–10 drags per side</dd>
         <dt>Stop at</dt><dd class="prose">Form degrading, not at a number.</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>The shoulder blade lifting off the ribcage on the supporting arm.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">The shoulder blade lifting off the ribcage on the supporting arm.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>A progression that adds twisting force underneath a shoulder blade that has to stay still — which is what happens in nearly every overhead sport. The published breakdown is unusually good on what failure looks like: the shoulder blade lifts away from the ribs while the movement still looks impressive.</p>
-      </div>
-      <p class="src">Source: <a href="https://www.youtube.com/watch?v=V4h4Cl4VYn0" target="_blank" rel="noopener noreferrer">[P]rehab</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://www.youtube.com/watch?v=V4h4Cl4VYn0" target="_blank" rel="noopener noreferrer">[P]rehab</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -1013,27 +1244,49 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="g-oPJKZPp1s" data-title="Bottoms-up kettlebell press"><a class="vidlink" href="https://www.youtube.com/watch?v=g-oPJKZPp1s" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Hold a light kettlebell by the handle with the bell upside down above your fist.</li>
           <li>Grip hard and bring it to shoulder height — forearm vertical, wrist straight, elbow under the bell.</li>
           <li>Press straight up until the arm locks out, keeping the bell balanced above you.</li>
           <li>Lower under control. If the bell keeps tipping, go lighter.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Sets &amp; reps</dt><dd>3 × 5–8 per arm</dd>
         <dt>Frequency</dt><dd>1–2 times a week</dd>
         <dt>Load</dt><dd class="prose">Capped by grip and stability, not strength, so it stays light.</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>Rushing. The whole value is in the control.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">Rushing. The whole value is in the control.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>Inverting the bell makes the load unstable, which forces the cuff to brace automatically, without you thinking about it, to keep the humeral head — the ball of the shoulder joint — centred. You can't muscle through it with the deltoid — the bell falls. That reflexive stabilization under sustained low-level load is exactly what a shoulder that hurts on a steering wheel is failing to do.</p>
-      </div>
-      <p class="src">Source: <a href="https://www.youtube.com/watch?v=g-oPJKZPp1s" target="_blank" rel="noopener noreferrer">Mike Reinold</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://www.youtube.com/watch?v=g-oPJKZPp1s" target="_blank" rel="noopener noreferrer">Mike Reinold</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -1056,26 +1309,48 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="X2muilaAxFk" data-title="Bottoms-up carry"><a class="vidlink" href="https://www.youtube.com/watch?v=X2muilaAxFk" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Hold a light kettlebell upside down at shoulder height, elbow bent, forearm vertical.</li>
           <li>Grip hard and brace your trunk so the bell stays balanced.</li>
           <li>Walk for the distance, or just stand still for the time, keeping it upright.</li>
           <li>Put it down before your grip fails, then swap sides.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Carries</dt><dd>3–4 per arm</dd>
         <dt>Each</dt><dd>20–30 seconds, or 20–40 metres</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>The wrist bending. Keep the forearm stacked under the bell.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">The wrist bending. Keep the forearm stacked under the bell.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>Closer to the real demand — holding a position on the wall, or a steering wheel — than any rep-based version.</p>
-      </div>
-      <p class="src">Source: <a href="https://www.youtube.com/watch?v=X2muilaAxFk" target="_blank" rel="noopener noreferrer">Chris Liddle</a> · <a href="https://www.rehabhero.ca/exercise/bottoms-up-kettlebell-carry" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://www.youtube.com/watch?v=X2muilaAxFk" target="_blank" rel="noopener noreferrer">Chris Liddle</a> · <a href="https://www.rehabhero.ca/exercise/bottoms-up-kettlebell-carry" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -1107,27 +1382,49 @@ main{padding-bottom:3rem}
         </div>
         <p class="shots-credit">Public domain photographs, via free-exercise-db.</p>
       </details>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Lie on your back holding a light weight straight up over one shoulder. Bend the same-side knee and put that foot flat on the floor.</li>
           <li>Roll onto the opposite forearm, then onto that hand, pushing up to sitting. The weight stays locked overhead.</li>
           <li>Lift your hips, sweep the straight leg back underneath you into a half-kneeling position, then stand up.</li>
           <li>Reverse every step to get back down. Keep your eyes on the weight through the early steps.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Reps</dt><dd>3–5 per side</dd>
         <dt>Load</dt><dd class="prose">Very light or unloaded — a shoe balanced on the fist works — for the first several weeks.</dd>
         <dt>Note</dt><dd class="prose">This is a skill before it's a strength exercise.</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>Losing sight of the weight. Eyes stay on it through the early phases.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">Losing sight of the weight. Eyes stay on it through the early phases.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>Takes the shoulder through full range under continuous load while the torso moves underneath it — which is what actually happens surfing and climbing. The points where it breaks down tend to be the points where control is missing, so it tells you something as well as trains something. Before loading it, check you can get that arm fully overhead against a wall without arching your back.</p>
-      </div>
-      <p class="src">Source: <a href="https://www.youtube.com/watch?v=lpltjWHd0ek" target="_blank" rel="noopener noreferrer">Cat &amp; Chau</a> · <a href="https://www.rehabhero.ca/exercise/turkish-get-up" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://www.youtube.com/watch?v=lpltjWHd0ek" target="_blank" rel="noopener noreferrer">Cat &amp; Chau</a> · <a href="https://www.rehabhero.ca/exercise/turkish-get-up" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -1155,29 +1452,51 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="3gYz0bLG-wY" data-title="Landmine press"><a class="vidlink" href="https://www.youtube.com/watch?v=3gYz0bLG-wY" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li><b>Landmine press.</b> Wedge one end of a barbell into a corner. Hold the other end at shoulder height in one hand.</li>
           <li>Stand square with the ribs down and press the bar up and away along its natural arc, then lower slowly.</li>
           <li><b>Incline press.</b> Same movement on an inclined bench, once the landmine version is comfortable.</li>
           <li><b>Overhead press.</b> Straight up, last. Add weight at each stage before you make the angle steeper.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Sets &amp; reps</dt><dd>3 × 8–12</dd>
         <dt>Strength work</dt><dd>1–2 times a week</dd>
         <dt>Mobility work</dt><dd>3–4 times a week</dd>
         <dt>Note</dt><dd class="prose">The supporting mobility work usually goes in the warm-up.</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>The ribs lifting and the lower back arching to find range the shoulder doesn't have.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">The ribs lifting and the lower back arching to find range the shoulder doesn't have.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>The landmine angle sits roughly in the scapular plane — the direction the shoulder blade naturally faces — which is mechanically kinder to the tendons running under the bony tip of the shoulder than pressing straight overhead. That lets you load the pressing pattern before full overhead range is comfortable, then progress the angle as tolerance improves.</p>
 
-      </div>
-      <p class="src">Source: <a href="https://www.youtube.com/watch?v=3gYz0bLG-wY" target="_blank" rel="noopener noreferrer">Simone Sports Performance</a> · <a href="https://www.rehabhero.ca/exercise/landmine-shoulder-press" target="_blank" rel="noopener noreferrer">Rehab Hero</a> · <a href="https://theprehabguys.com/must-do-exercises-to-master-overhead-lifting/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://www.youtube.com/watch?v=3gYz0bLG-wY" target="_blank" rel="noopener noreferrer">Simone Sports Performance</a> · <a href="https://www.rehabhero.ca/exercise/landmine-shoulder-press" target="_blank" rel="noopener noreferrer">Rehab Hero</a> · <a href="https://theprehabguys.com/must-do-exercises-to-master-overhead-lifting/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -1212,26 +1531,48 @@ main{padding-bottom:3rem}
         </div>
         <p class="shots-credit">Public domain photographs, via free-exercise-db.</p>
       </details>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Stand, or lie on your back, and bring the sore arm straight across your chest.</li>
           <li>Use the other hand to pull it in — grip just above the elbow, not at the wrist.</li>
           <li>Keep that shoulder pressed back and down. Don't let it roll forward toward your chin.</li>
           <li>Hold and breathe normally. Doing it lying down, or with your back to a wall, makes the shoulder easier to keep back.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Hold</dt><dd>30 seconds × 3–5 per side</dd>
         <dt>Frequency</dt><dd>Daily or most days</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>Letting the shoulder roll forward. That's the usual error and it defeats the whole stretch. Keep the ball of the joint back — doing it against a wall or lying down helps.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">Letting the shoulder roll forward. That's the usual error and it defeats the whole stretch. Keep the ball of the joint back — doing it against a wall or lying down helps.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>The muscles and capsule at the back of the shoulder tighten in the dominant arm of overhead athletes, and that tightness limits how far the arm can rotate inward and how far it can come across the chest — which shifts the ball of the shoulder joint forward during overhead motion. Research comparing this to the sleeper stretch found the cross-body approach significantly more effective at restoring internal rotation.</p>
-      </div>
-      <p class="src">Source: <a href="https://theprehabguys.com/posterior-shoulder-mobility-drills/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://theprehabguys.com/posterior-shoulder-mobility-drills/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -1255,28 +1596,50 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="9Y11Kc0E0og" data-title="Foam roller thoracic extension"><a class="vidlink" href="https://www.youtube.com/watch?v=9Y11Kc0E0og" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Lie on your back with a foam roller across your mid-back, just under the shoulder blades.</li>
           <li>Support your head in both hands and keep your hips on the floor.</li>
           <li>Let your upper back arch backwards over the roller. Either hold there, or do slow repeated extensions.</li>
           <li>Move the roller a few inches up or down and repeat at two or three spots.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Hold</dt><dd>About 2 minutes at each of 2–3 segments</dd>
         <dt>Or</dt><dd>10–15 slow extensions per segment</dd>
         <dt>Frequency</dt><dd>Most days</dd>
         <dt>Note</dt><dd class="prose">Use the reps version if sustained holds are uncomfortable.</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>The pelvis lifting. Keep it down so the extension happens in the thoracic spine, not the lumbar.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">The pelvis lifting. Keep it down so the extension happens in the thoracic spine, not the lumbar.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>When the thoracic spine — the mid-back — won't extend, the shoulder joint itself has to produce range it doesn't have, loading the cuff at end range. Nearly every surfer and climber is stiff here.</p>
-      </div>
-      <p class="src">Source: <a href="https://www.youtube.com/watch?v=9Y11Kc0E0og" target="_blank" rel="noopener noreferrer">Rehab My Patient</a> · <a href="https://www.rehabhero.ca/exercise/foam-roller-thoracic-extension" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://www.youtube.com/watch?v=9Y11Kc0E0og" target="_blank" rel="noopener noreferrer">Rehab My Patient</a> · <a href="https://www.rehabhero.ca/exercise/foam-roller-thoracic-extension" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -1299,26 +1662,48 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="M850sCj9LHQ" data-title="Doorway pec stretch"><a class="vidlink" href="https://www.youtube.com/watch?v=M850sCj9LHQ" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Stand in a doorway and put one forearm flat against the frame, elbow at about shoulder height.</li>
           <li>Step the same-side foot through the doorway.</li>
           <li>Turn your chest gently away from that arm until you feel a stretch across the front of the chest.</li>
           <li>Hold. Ease off if you feel it pinching in the front of the shoulder joint instead.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Hold</dt><dd>30 seconds per side × 2–3</dd>
         <dt>Frequency</dt><dd>Daily</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>Over-stretching into the front of the shoulder joint. It should be felt across the chest.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">Over-stretching into the front of the shoulder joint. It should be felt across the chest.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>A short pectoralis minor — a small muscle running under the chest to the shoulder blade — tips the shoulder blade forward — the same postural fault that sitting at a steering wheel with unsupported arms produces.</p>
-      </div>
-      <p class="src">Source: <a href="https://www.youtube.com/watch?v=M850sCj9LHQ" target="_blank" rel="noopener noreferrer">Medbridge</a> · <a href="https://www.rehabhero.ca/exercise/doorway-chest-stretch" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://www.youtube.com/watch?v=M850sCj9LHQ" target="_blank" rel="noopener noreferrer">Medbridge</a> · <a href="https://www.rehabhero.ca/exercise/doorway-chest-stretch" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -1346,26 +1731,48 @@ main{padding-bottom:3rem}
     </summary>
     <div class="body">
       <div class="vidwrap" data-yt="s8j9ToDjjUo" data-title="Chin nod, lying down"><a class="vidlink" href="https://www.youtube.com/watch?v=s8j9ToDjjUo" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
-      <div class="howto">
-        <h4 class="blk">How to do it</h4>
+      <details class="sect" data-sect="howto">
+        <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
         <ol>
           <li>Lie on your back with your knees bent and your head resting flat on the floor.</li>
           <li>Without lifting your head, nod your chin down toward your throat — a small 'yes' movement.</li>
           <li>Hold, keeping the front of your neck soft and slack.</li>
           <li>Release all the way between reps.</li>
         </ol>
-      </div>
-      <dl class="dose">
+        </div>
+      </details>
+      <details class="sect" data-sect="dose">
+        <summary>Dose<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <dl class="dose">
         <dt>Hold</dt><dd>5 seconds</dd>
         <dt>Sets &amp; reps</dt><dd>3 × 10</dd>
       </dl>
-      <p class="watch"><span class="lbl">Watch for</span>The front of the neck bulging. That's sternocleidomastoid, the rope-like muscle down the side of the neck, doing the work instead of the deep ones.</p>
-      <div data-role="log"></div>
-      <div class="whyblk">
-        <h4 class="blk">Why it's here</h4>
+        </div>
+      </details>
+      <details class="sect" data-sect="watch">
+        <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="watch">The front of the neck bulging. That's sternocleidomastoid, the rope-like muscle down the side of the neck, doing the work instead of the deep ones.</p>
+        </div>
+      </details>
+      <details class="sect" data-sect="log">
+        <summary>Log it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body"><div data-role="log"></div></div>
+      </details>
+      <details class="sect" data-sect="why">
+        <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
       <p>If the C5 nerve root is contributing to the deltoid-region pain, cuff work alone won't be enough. Building endurance in the deep cervical flexors — the small muscles at the front of the neck — addresses the forward-head posture that loads the upper cervical segments — the same posture driving produces.</p>
-      </div>
-      <p class="src">Source: <a href="https://www.youtube.com/watch?v=s8j9ToDjjUo" target="_blank" rel="noopener noreferrer">Physiohealth01</a> · <a href="https://www.rehabhero.ca/exercise/chin-tucks" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
+      <details class="sect" data-sect="src">
+        <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <div class="sect-body">
+        <p class="src"><a href="https://www.youtube.com/watch?v=s8j9ToDjjUo" target="_blank" rel="noopener noreferrer">Physiohealth01</a> · <a href="https://www.rehabhero.ca/exercise/chin-tucks" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        </div>
+      </details>
       <div class="cardtools" data-role="tools"></div>
     </div>
   </details>
@@ -1464,7 +1871,9 @@ var d=document, list=d.getElementById('list');
 
 /* ── storage ─────────────────────────────────────────────────── */
 var KEY='shoulder.v1', storageOK=true;
-var FRESH={v:1,log:{},off:[],custom:[],filter:'all',tests:{tender:null,neck:null},daily:{}};
+var SECTDEF={howto:true,dose:true,watch:false,log:true,why:false,src:false};
+var FRESH={v:1,log:{},off:[],custom:[],filter:'all',tests:{tender:null,neck:null},daily:{},
+           sects:{howto:true,dose:true,watch:false,log:true,why:false,src:false}};
 
 function read(){
   try{
@@ -1497,6 +1906,9 @@ function normalise(o){
             sec:sec,tags:tg};
   });
   if(typeof o.filter==='string'&&FILTERS.hasOwnProperty(o.filter)) s.filter=o.filter;
+  if(o.sects&&typeof o.sects==='object'){
+    for(var sk in SECTDEF){ if(typeof o.sects[sk]==='boolean') s.sects[sk]=o.sects[sk]; }
+  }
   if(o.daily&&typeof o.daily==='object'){
     for(var dk in o.daily){
       var dv=o.daily[dk];
@@ -1543,6 +1955,9 @@ var GENERIC='<svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1
   '<path class="arc" d="M86 36a26 26 0 0 1 0 22"/><path class="head" d="M83 54l4 10 6-8z"/></svg>';
 var CHEV='<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>';
 
+function sect(key,label,inner){
+  return '<details class="sect" data-sect="'+key+'"><summary>'+label+CHEV+'</summary><div class="sect-body">'+inner+'</div></details>';
+}
 function renderCustom(){
   Array.prototype.slice.call(list.querySelectorAll('.card[data-custom="1"]')).forEach(function(n){ n.remove(); });
   state.custom.forEach(function(c){
@@ -1558,11 +1973,11 @@ function renderCustom(){
         '<span class="status" data-role="status"></span></span>'+CHEV+'</summary>'+
       '<div class="body">'+
         (href?'<div class="vidwrap"><a class="vidlink" href="'+esc(href)+'" target="_blank" rel="noopener noreferrer">'+PLAY+'Open the link</a></div>':'')+
-        (c.steps.length?'<div class="howto"><h4 class="blk">How to do it</h4><ol>'+c.steps.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ol></div>':'')+
-        (c.dose?'<dl class="dose"><dt>Dose</dt><dd class="prose">'+esc(c.dose)+'</dd></dl>':'')+
-        (c.watch?'<p class="watch"><span class="lbl">Watch for</span>'+esc(c.watch)+'</p>':'')+
-        '<div data-role="log"></div>'+
-        (c.rat?'<div class="whyblk"><h4 class="blk">Why it\'s here</h4><p>'+esc(c.rat)+'</p></div>':'')+
+        (c.steps.length?sect('howto','How to do it','<div class="howto"><ol>'+c.steps.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ol></div>'):'')+
+        (c.dose?sect('dose','Dose','<dl class="dose"><dt>Dose</dt><dd class="prose">'+esc(c.dose)+'</dd></dl>'):'')+
+        (c.watch?sect('watch','Watch for','<p class="watch">'+esc(c.watch)+'</p>'):'')+
+        sect('log','Log it','<div data-role="log"></div>')+
+        (c.rat?sect('why',"Why it's here",'<div class="whyblk"><p>'+esc(c.rat)+'</p></div>'):'')+
         '<div class="cardtools" data-role="tools"></div>'+
       '</div>';
     slot.appendChild(el);
@@ -1611,7 +2026,34 @@ function paintCard(card){
             '<button class="btn btn-warn" type="button" data-act="del">Delete</button>':'');
   }
 }
-function paintAll(){ cards().forEach(paintCard); paintTriage(); paintCheck(); applyFilter(); paintOffList(); syncData(); }
+/* the card header sticks just under the filter bar, so its chevron stays reachable
+   however many sections you leave open */
+function setBar(){
+  var b=d.querySelector('.filters');
+  if(b) d.documentElement.style.setProperty('--bar', Math.round(b.getBoundingClientRect().height)+'px');
+}
+var syncingSects=false;
+function applySects(){
+  syncingSects=true;
+  Array.prototype.slice.call(list.querySelectorAll('.sect')).forEach(function(el){
+    var k=el.dataset.sect;
+    if(SECTDEF.hasOwnProperty(k)) el.open=!!state.sects[k];
+  });
+  syncingSects=false;
+}
+/* toggle does not bubble, so listen on the way down */
+d.addEventListener('toggle',function(ev){
+  var el=ev.target;
+  if(syncingSects||!el.classList||!el.classList.contains('sect')) return;
+  var k=el.dataset.sect;
+  if(!SECTDEF.hasOwnProperty(k)) return;
+  state.sects[k]=el.open; write(); syncingSects=true;
+  Array.prototype.slice.call(list.querySelectorAll('.sect[data-sect="'+k+'"]')).forEach(function(o){ o.open=el.open; });
+  syncingSects=false; syncData();
+},true);
+addEventListener('resize',setBar);
+
+function paintAll(){ cards().forEach(paintCard); applySects(); paintTriage(); paintCheck(); applyFilter(); paintOffList(); syncData(); }
 
 /* ── the two self-tests, wired to what the page shows ────────────── */
 var triage=d.getElementById('triage'), triSum=d.getElementById('triSum'),
@@ -1973,6 +2415,7 @@ d.getElementById('btnWipe').addEventListener('click',function(){
 renderCustom();
 embedAll();
 paintAll();
+setBar();
 if(!storageOK){
   var w=d.createElement('p'); w.className='says'; w.setAttribute('data-bad','1');
   w.textContent='This browser is blocking local storage, so nothing you log here will survive a reload. The exercises still work.';
