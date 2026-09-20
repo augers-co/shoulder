@@ -257,11 +257,12 @@ main{padding-bottom:3rem}
 .card .body > *:first-child{margin-top:0}
 
 .blk{font-family:var(--sans);font-weight:600;font-size:.8125rem;line-height:1.5;margin:0 0 .4rem;color:var(--muted)}
-.howto ol{margin:0;padding-left:1.35rem;font-size:1.0625rem;line-height:1.55}
-.howto li{margin-bottom:.45rem;max-width:58ch}
-.howto li:last-child{margin-bottom:0}
-.howto li::marker{font-family:var(--sans);font-weight:600;color:var(--kelp)}
-.howto b{font-family:var(--sans);font-weight:600;font-size:.9375rem}
+.howto ol,.sect[data-sect="howto"] ol{margin:0;padding-left:1.35rem;font-size:1.0625rem;line-height:1.55}
+.howto li,.sect[data-sect="howto"] li{margin-bottom:.45rem;max-width:58ch}
+.howto li:last-child,.sect[data-sect="howto"] li:last-child{margin-bottom:0}
+.howto li::marker,.sect[data-sect="howto"] li::marker{font-family:var(--sans);font-weight:600;color:var(--kelp)}
+.howto b,.sect[data-sect="howto"] b{font-family:var(--sans);font-weight:600;font-size:.9375rem}
+.sect-body > :last-child{margin-bottom:0}
 .whyblk{margin:0}
 .whyblk p:last-child{margin-bottom:0}
 .dose{margin:0;padding:.75rem .85rem;background:var(--kelp-wash);border-radius:3px;display:grid;grid-template-columns:auto 1fr;gap:.3rem .85rem}
@@ -1157,31 +1158,23 @@ main{padding-bottom:3rem}
 
   <details class="card" data-id="kb-drag-through" data-tags="serratus">
     <summary>
-      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path class="ref" d="M6 80h108"/>
-        <rect class="ref" x="60" y="66" width="13" height="11" rx="2"/>
-        <path class="ref" d="M63 66a4 4 0 0 1 7 0"/>
-        <circle class="bod" cx="27" cy="38" r="7"/>
-        <path class="bod" d="M34 41l42 11 32 24M36 44l-2 34"/>
-        <path class="arc" d="M84 72H74"/>
-        <path class="head" d="M76 67l-9 5 9 5z"/>
-      </svg></span>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="ref" d="M6 80h108"/><rect class="ref" x="57" y="70.5" width="5" height="9" rx="1"/><rect class="ref" x="70" y="70.5" width="5" height="9" rx="1"/><path class="ref" d="M62 75h8"/><circle class="bod" cx="27" cy="38" r="7"/><path class="bod" d="M34 41l42 11 32 24M36 44l-2 34"/><path class="arc" d="M90 75H82"/><path class="head" d="M84 70l-9 5 9 5z"/></svg></span>
       <span class="sum">
-        <h3 class="name">Kettlebell plank drag-through</h3>
+        <h3 class="name">Dumbbell plank drag-through</h3>
         <span class="why">Makes the shoulder blade hold still while your body is pulled sideways.</span>
         <span class="status" data-role="status"></span>
       </span>
       <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
     </summary>
     <div class="body">
-      <div class="vidwrap" data-yt="V4h4Cl4VYn0" data-title="Kettlebell plank drag-through"><a class="vidlink" href="https://www.youtube.com/watch?v=V4h4Cl4VYn0" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="vidwrap" data-yt="xxeVoV6asSY" data-title="Dumbbell plank drag-through"><a class="vidlink" href="https://www.youtube.com/watch?v=xxeVoV6asSY" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
       <details class="sect" data-sect="howto">
         <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
         <div class="sect-body">
         <ol>
           <li>Get into a push-up position with the hands a little wider than the shoulders and the feet wide apart.</li>
-          <li>Put a kettlebell on the floor just outside one hand.</li>
-          <li>Reach under your chest with the opposite hand and drag the bell across to the other side.</li>
+          <li>Put a dumbbell on the floor just outside one hand.</li>
+          <li>Reach under your chest with the opposite hand and drag the dumbbell across to the other side.</li>
           <li>Put the hand back down, reset, and drag it back. The hips stay level — nothing twists.</li>
         </ol>
         </div>
@@ -1208,13 +1201,13 @@ main{padding-bottom:3rem}
       <details class="sect" data-sect="why">
         <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
         <div class="sect-body">
-      <p>A progression that adds twisting force underneath a shoulder blade that has to stay still — which is what happens in nearly every overhead sport. The published breakdown is unusually good on what failure looks like: the shoulder blade lifts away from the ribs while the movement still looks impressive.</p>
+        <p>A progression that adds twisting force underneath a shoulder blade that has to stay still — which is what happens in nearly every overhead sport. What failure looks like: the shoulder blade lifts away from the ribs while the movement still looks impressive.</p>
         </div>
       </details>
       <details class="sect" data-sect="src">
         <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
         <div class="sect-body">
-        <p class="src"><a href="https://www.youtube.com/watch?v=V4h4Cl4VYn0" target="_blank" rel="noopener noreferrer">[P]rehab</a></p>
+        <p class="src">Source: <a href="https://www.youtube.com/watch?v=xxeVoV6asSY" target="_blank" rel="noopener noreferrer">Fit Family Physical Therapy</a></p>
         </div>
       </details>
       <div class="cardtools" data-role="tools"></div>
@@ -1224,34 +1217,28 @@ main{padding-bottom:3rem}
 
 <section class="sec" data-sec="load" data-slot="load" aria-labelledby="h-load">
   <h2 id="h-load">Cuff under load</h2>
-  <p class="sec-note">Keeping the shoulder joint steady while holding something unstable. This is what is not working when your arm hurts on a steering wheel.</p>
+  <p class="sec-note">Keeping the shoulder joint steady under a weight held overhead. This is what is not working when your arm hurts on a steering wheel.</p>
 
   <details class="card" data-id="bottoms-up-press" data-tags="load">
     <summary>
-      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path class="ref" d="M51 20V10q0-5 7-5t7 5v10zM55 20q3 6 6 0"/>
-        <circle class="bod" cx="36" cy="26" r="7"/>
-        <path class="bod" d="M36 33v23M36 56l-7 26M36 56l8 26M36 38l20 6M56 44V26"/>
-        <path class="arc" d="M40 14a24 24 0 0 1 36 0"/>
-        <path class="head" d="M72 8l8 8-9 4z"/>
-      </svg></span>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="ref" d="M6 82h108"/><circle class="bod" cx="50" cy="30" r="7"/><path class="bod" d="M52 37l4 22M56 59l-16 6v17M56 59l16 22M72 81h20M52 42l4-34"/><rect class="ref" x="47" y="3" width="5" height="9" rx="1"/><rect class="ref" x="60" y="3" width="5" height="9" rx="1"/><path class="ref" d="M52 7.5h8"/><path class="arc" d="M74 40a24 24 0 0 1 0-24"/><path class="head" d="M69 18l5-10 5 10z"/></svg></span>
       <span class="sum">
-        <h3 class="name">Bottoms-up kettlebell press</h3>
-        <span class="why">Forces the rotator cuff to steady a wobbling weight. Light and slow on purpose.</span>
+        <h3 class="name">Half-kneeling dumbbell press, slow</h3>
+        <span class="why">Makes the rotator cuff steady a weight overhead. Light and slow on purpose.</span>
         <span class="status" data-role="status"></span>
       </span>
       <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
     </summary>
     <div class="body">
-      <div class="vidwrap" data-yt="g-oPJKZPp1s" data-title="Bottoms-up kettlebell press"><a class="vidlink" href="https://www.youtube.com/watch?v=g-oPJKZPp1s" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="vidwrap" data-yt="2WoOrh3dqss" data-title="Half-kneeling dumbbell press"><a class="vidlink" href="https://www.youtube.com/watch?v=2WoOrh3dqss" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
       <details class="sect" data-sect="howto">
         <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
         <div class="sect-body">
         <ol>
-          <li>Hold a light kettlebell by the handle with the bell upside down above your fist.</li>
-          <li>Grip hard and bring it to shoulder height — forearm vertical, wrist straight, elbow under the bell.</li>
-          <li>Press straight up until the arm locks out, keeping the bell balanced above you.</li>
-          <li>Lower under control. If the bell keeps tipping, go lighter.</li>
+          <li>Kneel on one knee with the other foot planted in front. Hold a light dumbbell at the shoulder on the kneeling side, palm facing in.</li>
+          <li>Squeeze the glute of the kneeling leg so you cannot lean back to help.</li>
+          <li>Press slowly until the arm locks out, then hold for two to three seconds with the shoulder blade drawn down.</li>
+          <li>Lower over three seconds. If the weight wobbles or you arch to finish, it is too heavy.</li>
         </ol>
         </div>
       </details>
@@ -1260,15 +1247,16 @@ main{padding-bottom:3rem}
         <div class="sect-body">
         <dl class="dose">
         <dt>Sets &amp; reps</dt><dd>3 × 5–8 per arm</dd>
+        <dt>Tempo</dt><dd>3 seconds down, 2–3 second pause at the top</dd>
         <dt>Frequency</dt><dd>1–2 times a week</dd>
-        <dt>Load</dt><dd class="prose">Capped by grip and stability, not strength, so it stays light.</dd>
+        <dt>Load</dt><dd class="prose">Light. Control over weight, every set.</dd>
       </dl>
         </div>
       </details>
       <details class="sect" data-sect="watch">
         <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
         <div class="sect-body">
-        <p class="watch">Rushing. The whole value is in the control.</p>
+        <p class="watch">Rushing, or arching the lower back to finish the press. The whole value is in the control.</p>
         </div>
       </details>
       <details class="sect" data-sect="log">
@@ -1278,13 +1266,13 @@ main{padding-bottom:3rem}
       <details class="sect" data-sect="why">
         <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
         <div class="sect-body">
-      <p>Inverting the bell makes the load unstable, which forces the cuff to brace automatically, without you thinking about it, to keep the humeral head — the ball of the shoulder joint — centred. You can't muscle through it with the deltoid — the bell falls. That reflexive stabilization under sustained low-level load is exactly what a shoulder that hurts on a steering wheel is failing to do.</p>
+        <p>This replaces a bottoms-up kettlebell press, and something is lost in the swap worth being clear about. An upside-down kettlebell falls if the rotator cuff stops firing — you cannot muscle it with the deltoid — so it trains the cuff to brace by reflex. A dumbbell does not fall. What this keeps is sustained low-level work holding the joint stacked overhead, which is the demand a steering wheel makes; the slow tempo and the pause at the top are what stand in for the instability.</p>
         </div>
       </details>
       <details class="sect" data-sect="src">
         <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
         <div class="sect-body">
-        <p class="src"><a href="https://www.youtube.com/watch?v=g-oPJKZPp1s" target="_blank" rel="noopener noreferrer">Mike Reinold</a></p>
+        <p class="src">Source: <a href="https://www.youtube.com/watch?v=2WoOrh3dqss" target="_blank" rel="noopener noreferrer">OPEX Fitness</a></p>
         </div>
       </details>
       <div class="cardtools" data-role="tools"></div>
@@ -1293,30 +1281,24 @@ main{padding-bottom:3rem}
 
   <details class="card" data-id="bottoms-up-carry" data-tags="load">
     <summary>
-      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path class="ref" d="M51 20V10q0-5 7-5t7 5v10zM55 20q3 6 6 0"/>
-        <circle class="bod" cx="36" cy="26" r="7"/>
-        <path class="bod" d="M36 33v23M36 56l-7 26M36 56l8 26M36 38l20 6M56 44V26"/>
-        <path class="arc" d="M74 60h24"/>
-        <path class="head" d="M94 55l10 5-10 5z"/>
-      </svg></span>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="ref" d="M6 84h108"/><circle class="bod" cx="44" cy="30" r="7"/><path class="bod" d="M44 37v22M44 59l-8 25M44 59l9 25M44 42l5-33"/><rect class="ref" x="40" y="4" width="5" height="9" rx="1"/><rect class="ref" x="53" y="4" width="5" height="9" rx="1"/><path class="ref" d="M45 8.5h8"/><path class="arc" d="M68 66h20"/><path class="head" d="M86 61l10 5-10 5z"/></svg></span>
       <span class="sum">
-        <h3 class="name">Bottoms-up carry</h3>
-        <span class="why">The same as the press, but you hold the position instead of repeating it.</span>
+        <h3 class="name">Waiter's walk</h3>
+        <span class="why">Carry a dumbbell locked out overhead. The press, held rather than repeated.</span>
         <span class="status" data-role="status"></span>
       </span>
       <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
     </summary>
     <div class="body">
-      <div class="vidwrap" data-yt="X2muilaAxFk" data-title="Bottoms-up carry"><a class="vidlink" href="https://www.youtube.com/watch?v=X2muilaAxFk" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="vidwrap" data-yt="PoOMgVpoAKE" data-title="Waiter's walk"><a class="vidlink" href="https://www.youtube.com/watch?v=PoOMgVpoAKE" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
       <details class="sect" data-sect="howto">
         <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
         <div class="sect-body">
         <ol>
-          <li>Hold a light kettlebell upside down at shoulder height, elbow bent, forearm vertical.</li>
-          <li>Grip hard and brace your trunk so the bell stays balanced.</li>
-          <li>Walk for the distance, or just stand still for the time, keeping it upright.</li>
-          <li>Put it down before your grip fails, then swap sides.</li>
+          <li>Press a light dumbbell overhead with one arm and lock the elbow, palm facing forward.</li>
+          <li>Pull the shoulder down away from the ear and keep the ribs down — no leaning to the other side.</li>
+          <li>Walk slowly for the distance, or stand still for the time, keeping the arm dead vertical.</li>
+          <li>Lower under control before the arm starts to drift, then swap sides.</li>
         </ol>
         </div>
       </details>
@@ -1326,13 +1308,14 @@ main{padding-bottom:3rem}
         <dl class="dose">
         <dt>Carries</dt><dd>3–4 per arm</dd>
         <dt>Each</dt><dd>20–30 seconds, or 20–40 metres</dd>
+        <dt>Load</dt><dd class="prose">Light enough to keep the arm vertical for the whole carry.</dd>
       </dl>
         </div>
       </details>
       <details class="sect" data-sect="watch">
         <summary>Watch for<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
         <div class="sect-body">
-        <p class="watch">The wrist bending. Keep the forearm stacked under the bell.</p>
+        <p class="watch">The arm drifting forward or the elbow softening. Keep the dumbbell stacked straight over the shoulder.</p>
         </div>
       </details>
       <details class="sect" data-sect="log">
@@ -1342,13 +1325,13 @@ main{padding-bottom:3rem}
       <details class="sect" data-sect="why">
         <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
         <div class="sect-body">
-      <p>Closer to the real demand — holding a position on the wall, or a steering wheel — than any rep-based version.</p>
+        <p>Closer to the real demand — holding a position on the wall, or a steering wheel — than any rep-based version. With a dumbbell the load itself is stable, so the whole job is keeping the joint stacked and the shoulder blade down for the length of the carry.</p>
         </div>
       </details>
       <details class="sect" data-sect="src">
         <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
         <div class="sect-body">
-        <p class="src"><a href="https://www.youtube.com/watch?v=X2muilaAxFk" target="_blank" rel="noopener noreferrer">Chris Liddle</a> · <a href="https://www.rehabhero.ca/exercise/bottoms-up-kettlebell-carry" target="_blank" rel="noopener noreferrer">Rehab Hero</a></p>
+        <p class="src">Source: <a href="https://www.youtube.com/watch?v=PoOMgVpoAKE" target="_blank" rel="noopener noreferrer">The Sports Pod</a></p>
         </div>
       </details>
       <div class="cardtools" data-role="tools"></div>
@@ -1436,13 +1419,7 @@ main{padding-bottom:3rem}
 
   <details class="card" data-id="overhead-progression" data-tags="overhead">
     <summary>
-      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path class="ref" d="M6 82h108M10 80l56-46"/>
-        <circle class="bod" cx="88" cy="24" r="7"/>
-        <path class="bod" d="M88 31v25M88 56l-7 26M88 56l8 26M88 36l-12 8M76 44l-10-10"/>
-        <path class="arc" d="M56 46a22 22 0 0 1 4-18"/>
-        <path class="head" d="M53 31l9-8 2 11z"/>
-      </svg></span>
+      <span class="fig"><svg class="schem" viewBox="0 0 120 90" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="ref" d="M6 82h108"/><circle class="bod" cx="50" cy="30" r="7"/><path class="bod" d="M52 37l4 22M56 59l-16 6v17M56 59l16 22M72 81h20M52 42l4-34"/><rect class="ref" x="47" y="3" width="5" height="9" rx="1"/><rect class="ref" x="60" y="3" width="5" height="9" rx="1"/><path class="ref" d="M52 7.5h8"/><path class="arc" d="M74 40a24 24 0 0 1 0-24"/><path class="head" d="M69 18l5-10 5 10z"/></svg></span>
       <span class="sum">
         <h3 class="name">Overhead pressing progression</h3>
         <span class="why">Builds overhead pressing strength in three stages, starting at an easier angle.</span>
@@ -1451,15 +1428,15 @@ main{padding-bottom:3rem}
       <svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
     </summary>
     <div class="body">
-      <div class="vidwrap" data-yt="3gYz0bLG-wY" data-title="Landmine press"><a class="vidlink" href="https://www.youtube.com/watch?v=3gYz0bLG-wY" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
+      <div class="vidwrap" data-yt="wfSfkd16v4M" data-title="Half-kneeling dumbbell press, scapular plane"><a class="vidlink" href="https://www.youtube.com/watch?v=wfSfkd16v4M" target="_blank" rel="noopener noreferrer"><svg class="pico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.2v9.6l8-4.8z"/></svg>Watch the demo</a></div>
       <details class="sect" data-sect="howto">
         <summary>How to do it<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
         <div class="sect-body">
         <ol>
-          <li><b>Landmine press.</b> Wedge one end of a barbell into a corner. Hold the other end at shoulder height in one hand.</li>
-          <li>Stand square with the ribs down and press the bar up and away along its natural arc, then lower slowly.</li>
-          <li><b>Incline press.</b> Same movement on an inclined bench, once the landmine version is comfortable.</li>
-          <li><b>Overhead press.</b> Straight up, last. Add weight at each stage before you make the angle steeper.</li>
+          <li><b>Half-kneeling, scapular plane.</b> Kneel on one knee, dumbbell at the shoulder. Press up and slightly forward — about 30° in front of you, the direction the shoulder blade naturally faces — rather than straight out to the side.</li>
+          <li>Lower slowly to the shoulder, ribs down throughout.</li>
+          <li><b>Standing, scapular plane.</b> The same press, standing. Add weight here before moving on.</li>
+          <li><b>Standing overhead press.</b> Straight up, last. Add weight at each stage before you make the angle steeper.</li>
         </ol>
         </div>
       </details>
@@ -1487,14 +1464,14 @@ main{padding-bottom:3rem}
       <details class="sect" data-sect="why">
         <summary>Why it's here<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
         <div class="sect-body">
-      <p>The landmine angle sits roughly in the scapular plane — the direction the shoulder blade naturally faces — which is mechanically kinder to the tendons running under the bony tip of the shoulder than pressing straight overhead. That lets you load the pressing pattern before full overhead range is comfortable, then progress the angle as tolerance improves.</p>
+        <p>Pressing in the scapular plane — the direction the shoulder blade naturally faces, about 30° in front of you — is mechanically kinder to the tendons running under the bony tip of the shoulder than pressing straight overhead. A dumbbell angled that way does what a landmine bar did: it lets you load the pressing pattern before full overhead range is comfortable, then progress the angle as tolerance improves.</p>
 
         </div>
       </details>
       <details class="sect" data-sect="src">
         <summary>Source<svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></summary>
         <div class="sect-body">
-        <p class="src"><a href="https://www.youtube.com/watch?v=3gYz0bLG-wY" target="_blank" rel="noopener noreferrer">Simone Sports Performance</a> · <a href="https://www.rehabhero.ca/exercise/landmine-shoulder-press" target="_blank" rel="noopener noreferrer">Rehab Hero</a> · <a href="https://theprehabguys.com/must-do-exercises-to-master-overhead-lifting/" target="_blank" rel="noopener noreferrer">Prehab Guys</a></p>
+        <p class="src">Source: <a href="https://www.youtube.com/watch?v=wfSfkd16v4M" target="_blank" rel="noopener noreferrer">Figarelle's Fitness</a></p>
         </div>
       </details>
       <div class="cardtools" data-role="tools"></div>
